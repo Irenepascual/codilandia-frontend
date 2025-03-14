@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-inicio',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class InicioComponent {
 
+  constructor(private router: Router) {} 
+  
   // Método para el botón de Iniciar sesión
   iniciarSesion() {
     console.log('Iniciar sesión');
@@ -16,7 +19,6 @@ export class InicioComponent {
   // Método para el botón de Registrarse
   registrarse() {
     console.log('Registrarse');
-    // lógica para registrarse...
-  }
+    this.router.navigate(['/registro']);  }
 
 }

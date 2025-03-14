@@ -1,0 +1,63 @@
+<!-- registro.component.html -->
+<div class="screen-container">
+
+    <!-- Botón VOLVER en la esquina superior izquierda -->
+    <button class="volver" (click)="volver()">◀ VOLVER</button>
+  
+    <!-- Logo en la esquina superior derecha -->
+    <img src="logo.png" alt="Logo de Codilandia" class="logo" />
+  
+    <!-- Contenedor del recuadro de registro -->
+    <div class="registro-container">
+      <h1>REGISTRARSE</h1>
+  
+      <form (ngSubmit)="onSubmit()">
+        <!-- Nombre de usuario -->
+        <label for="nombre">Nombre de usuario</label>
+        <input
+          id="nombre"
+          type="text"
+          [(ngModel)]="nombre_usuario"
+          name="nombre_usuario" 
+          required
+        />
+
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          [(ngModel)]="correo_usuario"
+          name="correo_usuario"  
+          required
+        />
+
+        <!-- Contraseña -->
+        <label for="contrasena">Contraseña</label>
+        <input
+          id="contrasena"
+          type="password"
+          [(ngModel)]="contrasena"
+          name="contrasena" 
+          required
+        />
+
+        <!-- Selector de tipo de usuario -->
+        <label for="tipo">Soy...</label>
+        <select
+          id="tipo"
+          [(ngModel)]="tipoUsuario"
+          name="tipoUsuario" 
+          required
+        >
+          <option value="nino">Alumno</option>
+          <option value="adulto">Adulto</option>
+        </select>
+
+  
+        <!-- Botón para enviar el formulario -->
+        <button class="btn-submit" type="submit">Registrarse</button>
+      </form>
+    </div>
+  </div>
+  
