@@ -1,0 +1,124 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #b8d9f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.volver:hover {
+    color: #1648aa;
+}
+
+.titulo {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.solicitudes-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* 3 columnas con ancho mínimo y flexible */
+    gap: 40px;
+    justify-content: center;
+    padding: 5px;
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 30px auto; /* Centrar el contenedor */
+    max-height: 70vh; /* Ajusta esta altura según tu preferencia */
+    overflow-y: visible; /* Añade desplazamiento vertical */
+    overflow-x: hidden;
+    padding-left: 10%; /* Añade espacio a la izquierda */
+    padding-right: 10%; /* Añade espacio a la derecha */
+}
+
+.solicitud {
+    background-color: #5a82d6;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.solicitud:hover {
+    transform: scale(1.0);
+}
+
+
+.botones {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre botones */
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.btn {
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in-out;
+    flex: 1; /* Para que los botones ocupen el mismo espacio */
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.cancelar {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1.0em;
+}
+
+.aceptar {
+    background-color: #78dd75;
+    color: white;
+    padding: 5px 15px;
+    font-size: 1.0em;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 800px) {
+    .solicitudes-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 500px) {
+    .solicitudes-container {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+}

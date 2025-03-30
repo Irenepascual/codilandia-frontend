@@ -17,6 +17,14 @@ html, body {
     padding: 0;
     margin: 0;
   }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 70px;
+    justify-content: center;
+    padding: 25px;
+}
   
   .volver {
     position: absolute;
@@ -41,9 +49,8 @@ html, body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 190%;
     text-align: center;
-  }
+    }
   
   h2 {
     color: white;
@@ -103,7 +110,7 @@ html, body {
 
   .cursos-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(1, 1fr); 
     gap: 10px;
     margin-bottom: 20px;
     grid-auto-flow: row dense; 
@@ -122,4 +129,11 @@ html, body {
     right: 20px;
     width: 120px;
   }
+
+  .acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 60px;
+}
   

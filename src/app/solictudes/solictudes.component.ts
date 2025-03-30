@@ -2,18 +2,15 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profesor',
-  templateUrl: './profesor.component.html',
-  styleUrls: ['./profesor.component.css']
+  selector: 'app-solictudes',
+  imports: [],
+  templateUrl: './solictudes.component.html',
+  styleUrl: './solictudes.component.css'
 })
-export class ProfesorComponent {
-
+export class SolictudesComponent {
   constructor(private router: Router) {}
 
   volver() {
     this.router.navigate(['']); // Ajusta la ruta según tu configuración
-  }
-  clase(){
-    this.router.navigate(['curso']);
   }
 }

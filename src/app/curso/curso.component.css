@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #b8d9f0;
+}
+
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+.titulo {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    font-size: 1.5em;
+    justify-items: center; 
+    text-align: center;
+}
+
+.cursos-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+    text-align: center;
+    margin: 20px 0; 
+}
+
+
+.curso-btn {
+    background-color: #6c94eb;
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 15px;
+    width: 150%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.curso-btn:hover {
+    background-color: #5a82d6;
+    transform: scale(1.05);
+}
+
+/* Notificación */
+.notificacion {
+    position: absolute;
+    top: 270px;
+    left: 490px;
+    background: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+}

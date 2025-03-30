@@ -1,0 +1,134 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #b8d9f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.volver:hover {
+    color: #1648aa;
+}
+
+.titulo {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 270px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+}
+
+.seccion {
+    background-color: #5a82d6;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 900px;
+    text-align: left;
+    width: 100%;
+}
+
+.seccion-titulo {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #b8d9f0;
+    padding-bottom: 8px;
+}
+
+.nivel-medio {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.distribucion {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.distribucion-titulo {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.estadisticas-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 70px;
+    justify-content: center;
+    padding: 0px;
+}
+
+.alumnos-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); 
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    max-width: 100%; 
+    margin: 10px auto; 
+    max-height: 80vh; 
+    overflow-y: visible; 
+    overflow-x: hidden;
+    padding-left: 30%; 
+    padding-right: 30%; 
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.alumno {
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 1.8em;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.grafico-placeholder {
+    background-color: #f0f0f0;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #666;
+    font-style: italic;
+}
