@@ -12,7 +12,6 @@ import { CursoComponent } from './curso/curso.component';
 import { SolictudesComponent } from './solictudes/solictudes.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-import { AlumnoComponent } from './alumno/alumno.component';
 
 
 export const routes: Routes = [
@@ -26,8 +25,7 @@ export const routes: Routes = [
   { path: 'curso', component: CursoComponent },
   { path: 'solicitudes', component: SolictudesComponent},
   { path: 'alumnos', component: AlumnosComponent},
-  { path: 'estadisticas', component: EstadisticasComponent},
-  { path: 'alumno', component: AlumnoComponent}
+  { path: 'estadisticas', component: EstadisticasComponent}
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);
