@@ -37,24 +37,26 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    width: 100%;
+    width: 90%;
+    max-width: 600px; /* Evita que sea demasiado ancho */
     text-align: center;
-    margin: 20px 0; 
+    margin: 20px auto; /* Centrar el grid */
 }
-
 
 .curso-btn {
     background-color: #6c94eb;
     color: white;
     font-weight: bold;
-    padding: 30px;
-    font-size: 1.5em;
+    padding: 20px; 
+    font-size: 1.2em;
     border: none;
     border-radius: 15px;
-    width: 150%;
+    width: 100%; 
+    max-width: 700px; 
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px; 
 }
 
 .curso-btn:hover {
@@ -62,11 +64,10 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Notificación */
 .notificacion {
     position: absolute;
-    top: 270px;
-    left: 490px;
+    top: 230px;
+    left: 440px;
     background: red;
     color: white;
     font-size: 14px;
