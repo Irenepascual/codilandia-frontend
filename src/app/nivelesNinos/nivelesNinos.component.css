@@ -1,0 +1,96 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+    background-color: #b8d9f0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 40px;
+  }
+  
+.niveles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #b3d9ff;
+    padding: 20px;
+    height: 100vh;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+.logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 150px;
+  height: auto;
+}
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  .estrella-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .estrella-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .estrella-item {
+    position: relative;
+  }
+
+  .estrella-item:hover {
+    transform: scale(1.2); 
+  }
+
+  .estrella-img {
+    width: 150px;  
+    height: 150px;
+  }
+
+  
+  .estrella-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    font-size: 1.5rem; 
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+
+  

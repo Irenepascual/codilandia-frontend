@@ -1,19 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RegistroComponent } from './registro/registro.component';
+import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { InicioNinoComponent } from './inicio-nino/inicio-nino.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
+import { NivelesNinosComponent } from './nivelesNinos/nivelesNinos.component';
 import { AppRoutingModule } from './app.routes';  
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    RegistroComponent  
+    RegistroComponent,
+    InicioSesionComponent,
+    InicioNinoComponent,
+    RecuperacionComponent,
+    NivelesNinosComponent  
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule  
   ],

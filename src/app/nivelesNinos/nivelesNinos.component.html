@@ -1,0 +1,37 @@
+<div class="niveles-container">
+  <div class="header">
+    <button class="volver" (click)="router.navigate(['/inicio-nino'])">◀ VOLVER</button>
+    <img src="logo.png" alt="Logo de Codilandia" class="logo" />
+  </div>
+
+  <h1>TUS NIVELES</h1>
+
+  <div class="estrella-container">
+    <div class="estrella-row">
+      <div class="estrella-item" *ngFor="let num of [1, 2, 3, 4, 5]">
+        <div class="estrella">
+          <img src="dibujo_estrella.png" alt="Estrella" class="estrella-img"/>
+          <span class="estrella-num">{{ num }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="estrella-row">
+      <div class="estrella-item" *ngFor="let num of [6, 7, 8, 9, 10]">
+        <div class="estrella">
+          <img src="dibujo_estrella.png" alt="Estrella" class="estrella-img"/>
+          <span class="estrella-num">{{ num }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="estrella-row">
+      <div class="estrella-item" *ngFor="let num of [11, 12, 13, 14, 15]">
+        <div class="estrella">
+          <img src="dibujo_estrella.png" alt="Estrella" class="estrella-img"/>
+          <span class="estrella-num">{{ num }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

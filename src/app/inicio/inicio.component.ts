@@ -10,15 +10,16 @@ export class InicioComponent {
 
   constructor(private router: Router) {} 
   
-  // Método para el botón de Iniciar sesión
+  // Método del botón de iniciar sesión
   iniciarSesion() {
     console.log('Iniciar sesión');
-    // lógica para iniciar sesión...
+    this.router.navigate(['/inicio-sesion']);
   }
 
-  // Método para el botón de Registrarse
+  // Método del botón de registrarse
   registrarse() {
     console.log('Registrarse');
-    this.router.navigate(['/registro']);  }
+    this.router.navigate(['/registro']);  
+  }
 
 }
