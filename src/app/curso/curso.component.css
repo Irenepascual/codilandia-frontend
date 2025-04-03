@@ -17,13 +17,16 @@ html, body {
     font-weight: 600;
   }
 
-.titulo {
+  .titulo {
     font-size: 2em;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     text-align: center;
+    margin-top: 140px;
+    margin-bottom: 30px;
 }
+
 
 h2 {
     color: white;
@@ -66,7 +69,7 @@ h2 {
 
 .notificacion {
     position: absolute;
-    top: 230px;
+    top: 360px;
     left: 440px;
     background: red;
     color: white;
