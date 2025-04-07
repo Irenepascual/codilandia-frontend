@@ -123,3 +123,125 @@ html, body {
     width: 120px;
   }
   
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+.join-group-modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.join-group-modal button {
+  width: 100%;  
+  padding: 15px;
+  margin: 10px 0;  
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem; 
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.join-group-modal h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.join-group-modal label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.join-group-modal input {
+  width: 55%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+}
+
+.join-group-modal .btn-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 200px;
+  background-color: #212121;
+  color: white;
+  padding: 12px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  display: block;
+  margin-left: auto;  
+  margin-right: auto;
+}
+
+.join-group-modal .btn-submit:hover {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+.join-group-modal .btn-submit:active {
+  transform: scale(0.95);
+}
+
+.spinner-modal {
+  background: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px); 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

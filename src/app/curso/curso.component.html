@@ -1,11 +1,18 @@
 <div class="profesor-container">
     <button class="volver" (click)="volver()">◀ VOLVER</button>
-    <h1 class="titulo">Maria Luisa, Curso 2ºA</h1>
-    <h2 class="codigo">código: 875693</h2>
+    <div class="modal-overlay" *ngIf="isLoading">
+        <div class="spinner-modal">
+          <div class="spinner"></div>
+        </div>
+      </div> 
+    <h1 class="titulo">{{ nombre_usuario }} | {{ curso?.nombre_aula }}</h1>
+    <h2 class="codigo">código: {{ codigoAula }}</h2>
 
     <div class="cursos-grid">
-        <div class="notificacion">4</div>
-        <button class="curso-btn"(click)="solictudes()">SOLICITUDES</button>
+        <div class="notificacion" *ngIf="solicitudes.length > 0">
+            {{solicitudes.length}}
+          </div>
+        <button class="curso-btn"(click)="solictudes(codigoAula)">SOLICITUDES</button>
     </div>
 
     <div class="cursos-grid">
