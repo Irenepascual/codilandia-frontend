@@ -101,8 +101,8 @@ export class CursoComponent implements OnInit {
     this.router.navigate(['curso', curso]);
   }
 
-  alumnos() {
-    this.router.navigate(['alumnos']);
+  alumnos(curso: number) {
+    this.router.navigate(['alumnos', curso]);
   }
 
   estadisticas() {

@@ -24,7 +24,7 @@ export const routes: Routes = [
   { path: 'profesor', component: ProfesorComponent },
   { path: 'curso/:codigo', component: CursoComponent },
   { path: 'solicitudes/:codigo', component: SolictudesComponent},
-  { path: 'alumnos', component: AlumnosComponent},
+  { path: 'alumnos/:codigo', component: AlumnosComponent},
   { path: 'estadisticas', component: EstadisticasComponent},
   { path: 'nivel1', component: Nivel1Component }
 

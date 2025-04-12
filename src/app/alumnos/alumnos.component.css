@@ -91,6 +91,12 @@ body {
     color: white;
 }
 
+p{
+    text-align: center;
+    align-self: center;
+    font-size: 30px;
+}
+
 /* RESPONSIVIDAD */
 @media (max-width: 800px) {
     .alumnos-container {
