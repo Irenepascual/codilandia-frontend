@@ -11,6 +11,7 @@ import { InicioNinoComponent } from './inicio-nino/inicio-nino.component';
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { NivelesNinosComponent } from './nivelesNinos/nivelesNinos.component';
 import { AppRoutingModule } from './app.routes';  
+import { Nivel1Component } from './nivel1/nivel1.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app.routes';
     InicioSesionComponent,
     InicioNinoComponent,
     RecuperacionComponent,
-    NivelesNinosComponent  
+    NivelesNinosComponent,
+    Nivel1Component  
   ],
   imports: [
     BrowserModule,

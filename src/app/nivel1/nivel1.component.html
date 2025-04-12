@@ -1,0 +1,30 @@
+<div class="nivel-container">
+  <!-- Botón de Volver -->
+  <button class="volver" (click)="router.navigate(['/'])">◀ Volver</button>
+
+  <!-- Título de la pantalla -->
+  <h1>¡Bienvenido al Nivel 1!</h1>
+
+  <!-- Fila con imagen y texto sobre qué es un programa -->
+  <div class="row">
+    <div>
+      <h2>¿Qué es un programa?</h2>
+      <p class="texto">Un programa es como una receta que le dice al ordenador qué hacer.</p>
+      <p class="texto">Por ejemplo, si le dices a tu ordenador que te dibuje un sol, el programa lo hace.</p>
+    </div>
+    <img src="imagen3.png" alt="Niño frente al ordenador" class="image" />
+  </div>
+
+  <!-- Fila con imagen y texto sobre para qué sirve un programa -->
+  <div class="row">
+    <div>
+      <h2>¿Para qué sirve un programa?</h2>
+      <p class="texto">Un programa ayuda a los ordenadores a hacer tareas, como jugar a juegos, dibujar en la pantalla o cualquier tipo de instrucción que se quiera.</p>
+      <p class="texto">¡Es como darle superpoderes a tu computadora!</p>
+    </div>
+    <img src="imagen4.png" alt="Mascota de la aplicación" class="image" />
+  </div>
+
+  <!-- Botón para terminar el nivel -->
+  <button class="btn-finish" (click)="finishLevel()">¡Terminar nivel!</button>
+</div>

@@ -12,7 +12,7 @@ import { CursoComponent } from './curso/curso.component';
 import { SolictudesComponent } from './solictudes/solictudes.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-
+import { Nivel1Component } from './nivel1/nivel1.component';
 
 export const routes: Routes = [
   { path: '', component: InicioComponent }, 
@@ -25,7 +25,9 @@ export const routes: Routes = [
   { path: 'curso/:codigo', component: CursoComponent },
   { path: 'solicitudes/:codigo', component: SolictudesComponent},
   { path: 'alumnos', component: AlumnosComponent},
-  { path: 'estadisticas', component: EstadisticasComponent}
+  { path: 'estadisticas', component: EstadisticasComponent},
+  { path: 'nivel1', component: Nivel1Component }
+
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);
