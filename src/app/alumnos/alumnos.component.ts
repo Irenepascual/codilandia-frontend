@@ -28,7 +28,7 @@ export class AlumnosComponent implements OnInit{
   correo_usuario: string = ''; 
   solicitudes: any[] = [];
   errorMessage: string = '';
-  isLoading: boolean = true;
+  isLoading: boolean = false;
 
 
   constructor(
@@ -46,6 +46,7 @@ export class AlumnosComponent implements OnInit{
       this.http.get<Curso[]>(`http://localhost:3000/api/aulas/aula?codigo=${this.codigoAula}`).subscribe({
         next: (res) => {
           this.curso = res[0];
+          this.isLoading = false;
         },
         error: (err) => {
           console.error('Error al cargar el curso:', err);
@@ -73,7 +74,6 @@ export class AlumnosComponent implements OnInit{
       const user = this.decodeToken(token);
       this.nombre_usuario = user?.nombre_usuario; 
       this.correo_usuario = user?.correo_usuario;  
-      this.isLoading = false;
     } else {
       this.router.navigate(['/login']); 
       this.isLoading = false;

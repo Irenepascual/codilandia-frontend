@@ -25,7 +25,7 @@ export const routes: Routes = [
   { path: 'curso/:codigo', component: CursoComponent },
   { path: 'solicitudes/:codigo', component: SolictudesComponent},
   { path: 'alumnos/:codigo', component: AlumnosComponent},
-  { path: 'estadisticas', component: EstadisticasComponent},
+  { path: 'estadisticas/:codigo', component: EstadisticasComponent},
   { path: 'nivel1', component: Nivel1Component }
 
 ];
