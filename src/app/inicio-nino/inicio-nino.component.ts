@@ -12,8 +12,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class InicioNinoComponent implements OnInit {
 
-  nombre_usuario: string = ''; 
-  correo_usuario: string = ''; 
+  nombre: string = ''; 
+  correo: string = ''; 
+  codigo_aula: string = '';
   cursos: any[] = []; 
   errorMessage: string = '';
   isJoinGroupModalOpen = false;
@@ -30,16 +31,23 @@ export class InicioNinoComponent implements OnInit {
 
 
   getUserData() {
-    const token = localStorage.getItem('auth_token');
-    if (token) {
-      const user = this.decodeToken(token);
-      this.nombre_usuario = user?.nombre_usuario; 
-      this.correo_usuario = user?.correo_usuario;  
+  const token = localStorage.getItem('auth_token');
+  if (token) {
+    const user = this.decodeToken(token);
+    this.codigo_aula = user?.codigo_aula;
+    this.correo = user?.correo_usuario;
+    this.nombre = user?.nombre_usuario;
     } else {
       this.router.navigate(['/login']); 
     }
   }
 
+  encodeToken(payload: any): string {
+    const header = { alg: 'HS256', typ: 'JWT' };
+    const encode = (obj: any) => btoa(JSON.stringify(obj)).replace(/=+$/, '');
+    return `${encode(header)}.${encode(payload)}.fake-signature`;
+  }
+  
   decodeToken(token: string) {
     const payload = token.split('.')[1];  
     const decoded = atob(payload);  
@@ -47,7 +55,7 @@ export class InicioNinoComponent implements OnInit {
   }
 
   obtenerCursos(): void {
-    this.http.get<any>(`http://localhost:3000/api/aulas/${this.correo_usuario}/${this.nombre_usuario}`).subscribe({
+    this.http.get<any>(`http://localhost:3000/api/aulas/${this.correo}/${this.nombre}`).subscribe({
       next: (res) => {
         if (res.length > 0) {
           this.cursos = res; 
@@ -77,7 +85,7 @@ export class InicioNinoComponent implements OnInit {
     }
 
     // Comprobación de grupos a los que está unido
-    this.http.get<any[]>(`http://localhost:3000/api/aulas/${this.correo_usuario}/${this.nombre_usuario}`).subscribe({
+    this.http.get<any[]>(`http://localhost:3000/api/aulas/${this.correo}/${this.nombre}`).subscribe({
       next: (res) => {
         console.log(res.length);
         if (res.length >= 3) {
@@ -93,8 +101,8 @@ export class InicioNinoComponent implements OnInit {
       
         // Enviar la solicitud POST para incluir la solicitud
         this.http.post('http://localhost:3000/api/aulas/unirse', {
-          correo: this.correo_usuario,
-          nombre: this.nombre_usuario,
+          correo: this.correo,
+          nombre: this.nombre,
           codigo: this.groupCode,
           fecha_solicitud: today
         }).subscribe({
@@ -116,7 +124,47 @@ export class InicioNinoComponent implements OnInit {
     }); 
   }
 
-  navigateToNiveles(): void {
+  navigateToNivelesFromCurso(curso: any): void {
+    const token = localStorage.getItem('auth_token');
+    if (!token) return;
+  
+    const decoded = this.decodeToken(token);
+    const updatedPayload = {
+      ...decoded,
+      codigo_aula: curso.codigo_aula
+    };
+  
+    const newToken = this.encodeToken(updatedPayload);
+    localStorage.setItem('auth_token', newToken);
+  
     this.router.navigate(['/nivelesNinos']);
   }
+  
+
+  navigateToNiveles(): void {
+    this.http.get<any>(`http://localhost:3000/api/aulas/individual/${this.correo}/${this.nombre}`)
+      .subscribe({
+        next: (res) => {
+          const codigo_aula = res.codigo_aula;
+          const token = localStorage.getItem('auth_token');
+          if (!token) return;
+  
+          const decoded = this.decodeToken(token);
+          const updatedPayload = {
+            ...decoded,
+            codigo_aula: codigo_aula
+          };
+  
+          const newToken = this.encodeToken(updatedPayload);
+          localStorage.setItem('auth_token', newToken);
+  
+          this.router.navigate(['/nivelesNinos']);
+        },
+        error: (err) => {
+          console.error('Error al obtener el aula individual:', err);
+          this.errorMessage = 'Error al obtener el aula individual.';
+        }
+      });
+  }
+  
 }

@@ -6,14 +6,14 @@
 
   <div class="content">
     <div class="nombre-container">
-      <h1>{{ nombre_usuario }}</h1>
+      <h1>{{ nombre }}</h1>
     </div>
 
     <div class="mis-cursos-container">
       <div class="mis-cursos">
         <h2>Mis Cursos</h2>
         <div *ngIf="cursos.length > 0" class="curso-list">
-          <div *ngFor="let curso of cursos" class="curso">
+          <div *ngFor="let curso of cursos" class="curso" (click)="navigateToNivelesFromCurso(curso)">
             <p>{{ curso.nombre_aula }}</p>
           </div>
         </div>
