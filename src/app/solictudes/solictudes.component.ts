@@ -45,7 +45,7 @@ export class SolictudesComponent implements OnInit {
         this.http.get<Solicitud[]>(`http://localhost:3000/api/aulas/aula/${this.codigoAula}/solicitudes`).subscribe({
           next: (res) => {
             if (res.length > 0) {
-              this.solicitudes = res; 
+              this.solicitudes = res;
             } else {
               this.errorMessage = 'No tienes cursos asignados.';
             }
@@ -60,6 +60,7 @@ export class SolictudesComponent implements OnInit {
         this.http.get<Curso[]>(`http://localhost:3000/api/aulas/aula?codigo=${this.codigoAula}`).subscribe({
           next: (res) => {
             this.curso = res[0];
+            this.isLoading = false; 
           },
           error: (err) => {
             console.error('Error al cargar el curso:', err);
@@ -68,7 +69,7 @@ export class SolictudesComponent implements OnInit {
       }
 
       this.getUserData();
-      this.isLoading = false;
+
     }
 
     getUserData() {
@@ -76,7 +77,7 @@ export class SolictudesComponent implements OnInit {
       if (token) {
         const user = this.decodeToken(token);
         this.nombre_usuario = user?.nombre_usuario; 
-        this.correo_usuario = user?.correo_usuario;  
+        this.correo_usuario = user?.correo_usuario; 
       } else {
         this.router.navigate(['/login']); 
       }
