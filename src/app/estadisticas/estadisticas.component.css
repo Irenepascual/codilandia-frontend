@@ -227,6 +227,13 @@ body {
     backdrop-filter: blur(2px); 
   }
 
+  p{
+    text-align: center;
+    align-self: center;
+    font-size: 30px;
+    color: white;
+}
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

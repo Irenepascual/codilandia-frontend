@@ -12,8 +12,8 @@
     <div class="estadisticas-container">
         <div class="seccion">
             <h2 class="seccion-titulo">ESTADÍSTICAS GENERALES</h2>
-            <div class="nivel-medio">Nivel medio: {{nivel_medio}}</div>
-            
+            <div class="nivel-medio">Nivel medio: {{nivel_medio}}
+            </div>
             <div class="distribucion">
                 <div class="distribucion-titulo">Distribución por niveles:</div>
                 <div *ngIf="barChartData">
@@ -34,6 +34,7 @@
                     <button class="btn" (click)="openAlumnoPopup(alumno)">{{alumno?.nombre_nino}}</button>
                 </div>
             </div>
+            <p *ngIf="alumnos.length == 0">No hay alumnos por el momento.</p>
         </div>
         <div *ngIf="showPopup" class="popup-overlay" (click)="closePopup()">
             <div class="popup-content" (click)="$event.stopPropagation()">

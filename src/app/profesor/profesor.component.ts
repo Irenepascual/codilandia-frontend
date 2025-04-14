@@ -75,6 +75,7 @@ export class ProfesorComponent implements OnInit{
           next: (res) => {
             alert('Aula creada con éxito.');
             this.CreateAulaVirtual(codigoGenerado);
+            this.AnadirNiveles(codigoGenerado);
             this.closeCreateRoomModal();
           },
           error: (err) => {
@@ -82,6 +83,33 @@ export class ProfesorComponent implements OnInit{
           }
         });
   }
+
+  AnadirNiveles(codigo: number) {
+    let requestsCompleted = 0;
+    const totalLevels = 15;
+  
+    for (let i = 1; i <= totalLevels; i++) {
+      this.http.post('http://localhost:3000/api/aulas/niveles', {
+        numero_nivel: i,
+        codigo_aula: codigo,
+        nombre_nivel: `Nivel - ${i}`,
+      }).subscribe({
+        next: (res) => {
+          requestsCompleted++;
+          if (requestsCompleted === totalLevels) {
+            alert('Todos los niveles añadidos con éxito.');
+            this.isLoading = false;
+            this.closeCreateRoomModal();
+            window.location.reload();
+          }
+        },
+        error: (err) => {
+          console.error(`Error al añadir el nivel ${i}:`, err);
+        }
+      });
+    }
+  }
+  
 
   CreateAulaVirtual(codigo: number){
     this.http.post('http://localhost:3000/api/aulas/crear-aula-virtual', {
