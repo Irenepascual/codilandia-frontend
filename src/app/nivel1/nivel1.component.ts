@@ -35,7 +35,7 @@ export class Nivel1Component implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-  
+
   // Decodifica el token JWT para obtener los datos del usuario
   decodeToken(token: string) {
     const payload = token.split('.')[1];
@@ -43,25 +43,44 @@ export class Nivel1Component implements OnInit {
     return JSON.parse(decoded);
   }
 
-  // Método que se invoca cuando el niño finaliza el nivel
+  encodeToken(payload: any): string {
+    const header = { alg: 'HS256', typ: 'JWT' };
+    const encode = (obj: any) => btoa(JSON.stringify(obj)).replace(/=+$/, '');
+    return `${encode(header)}.${encode(payload)}.fake-signature`;
+  }
+  
+
   finishLevel(): void {
-    // Realizar PUT con los datos: correo, nombre, código de aula, nivel, puntos obtenidos y puntos mínimos
     this.http.put<any>(`http://localhost:3000/api/niveles/actualizar`, {
       correo_nino: this.correo_nino,
       nombre_nino: this.nombre_nino,
       codigo_aula: this.codigo_aula,
       nivel: this.num_nivel,
-      puntos_obtenidos: this.puntos_obtenidos, // Valor definido en este componente
-      puntos_minimos: this.puntos_minimos         // Valor definido en este componente
+      puntos_obtenidos: this.puntos_obtenidos,
+      puntos_minimos: this.puntos_minimos
     }).subscribe({
       next: (res) => {
         console.log('Nivel actualizado', res);
-        // Redirigir, por ejemplo, de vuelta al listado de niveles o al siguiente nivel
+  
+        // ✅ ACTUALIZAMOS el token con el mismo payload (por si acaso)
+        const oldToken = localStorage.getItem('auth_token');
+        if (!oldToken) return;
+  
+        const decoded = this.decodeToken(oldToken);
+        const updatedPayload = {
+          ...decoded,
+          codigo_aula: this.codigo_aula
+        };
+        const newToken = this.encodeToken(updatedPayload);
+        localStorage.setItem('auth_token', newToken);
+  
+        console.log('Redirigiendo a nivelesNinos...');
         this.router.navigate(['/nivelesNinos']);
+        console.log('¿Llegó después del navigate?');
       },
       error: (err) => {
         console.error('Error al actualizar el nivel', err);
       }
     });
-  }
+  }  
 }

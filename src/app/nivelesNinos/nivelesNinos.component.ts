@@ -12,30 +12,67 @@ export class NivelesNinosComponent implements OnInit {
   codigo_aula: string = '';
   correo: string = '';
   nombre: string = '';
+  nivel_actual: number = 1;
 
   constructor(private route: ActivatedRoute, public router: Router) {}
 
+  decodeToken(token: string) {
+    const payload = token.split('.')[1];
+    const decoded = atob(payload);
+    return JSON.parse(decoded);
+  }
+
+  encodeToken(payload: any): string {
+    const header = { alg: 'HS256', typ: 'JWT' };
+    const encode = (obj: any) => btoa(JSON.stringify(obj)).replace(/=+$/, '');
+    return `${encode(header)}.${encode(payload)}.fake-signature`;
+  }
+  
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.codigo_aula = params['codigo_aula'];
-      this.correo = params['correo'];
-      this.nombre = params['nombre'];
-      // Ahora puedes usar estas variables para relacionar cada nivel con el aula del niño
+    const token = localStorage.getItem('auth_token');
+    if (token) {
+      const user = this.decodeToken(token);
+      this.codigo_aula = user?.codigo_aula;
+      this.correo = user?.correo_usuario;
+      this.nombre = user?.nombre_usuario;
+
+      this.getNivelActual(); 
       console.log('Código aula:', this.codigo_aula);
       console.log('Correo:', this.correo);
       console.log('Nombre:', this.nombre);
-    });
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+
+  getNivelActual(): void {
+    fetch(`http://localhost:3000/api/aulas/nivel-actual/${this.correo}/${this.nombre}/${this.codigo_aula}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.nivel_actual && !isNaN(Number(data.nivel_actual))) {
+          this.nivel_actual = Number(data.nivel_actual);
+        } else {
+          console.warn('Nivel actual inválido:', data.nivel_actual);
+          this.nivel_actual = 1; // valor por defecto si no viene nada
+        }
+      })
   }
 
   navigateToNivel(nivel: number): void {
-    // Construir la ruta dinámica según el número de nivel, por ejemplo: '/nivel1', '/nivel2', etc.
+    const token = localStorage.getItem('auth_token');
+    if (!token) return;
+  
+    const decoded = this.decodeToken(token);
+    const updatedPayload = {
+      ...decoded,
+      codigo_aula: this.codigo_aula
+    };
+  
+    const newToken = this.encodeToken(updatedPayload);
+    localStorage.setItem('auth_token', newToken);
+  
     const path = `/nivel${nivel}`;
-    this.router.navigate([path], { 
-      queryParams: { 
-        codigo_aula: this.codigo_aula, 
-        correo: this.correo, 
-        nombre: this.nombre 
-      }
-    });
-  }
+    this.router.navigate([path]);  // sin queryParams
+  }  
 }

@@ -93,4 +93,16 @@ html, body {
     font-weight: bold;
   }
 
+  .estrella-item:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Las estrellas deshabilitadas no se agrandan al pasar el ratón */
+  .estrella-item.disabled:hover {
+    transform: none;
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+  
   

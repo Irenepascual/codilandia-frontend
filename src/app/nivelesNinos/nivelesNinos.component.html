@@ -8,27 +8,48 @@
 
   <div class="estrella-container">
     <div class="estrella-row">
-      <div class="estrella-item" *ngFor="let num of [1, 2, 3, 4, 5]" (click)="navigateToNivel(num)">
+      <div 
+        class="estrella-item" 
+        *ngFor="let num of [1, 2, 3, 4, 5]" 
+        [class.disabled]="num > nivel_actual"
+        (click)="num <= nivel_actual && navigateToNivel(num)">
         <div class="estrella">
-          <img src="dibujo_estrella.png" alt="Estrella" class="estrella-img"/>
+          <img 
+            [src]="num <= nivel_actual ? 'dibujo_estrella.png' : 'estrella_gris.png'" 
+            alt="Estrella" 
+            class="estrella-img"/>
           <span class="estrella-num">{{ num }}</span>
         </div>
       </div>
     </div>
 
     <div class="estrella-row">
-      <div class="estrella-item" *ngFor="let num of [6, 7, 8, 9, 10]" (click)="navigateToNivel(num)">
+      <div 
+        class="estrella-item" 
+        *ngFor="let num of [6, 7, 8, 9, 10]" 
+        [class.disabled]="num > nivel_actual"
+        (click)="num <= nivel_actual && navigateToNivel(num)">
         <div class="estrella">
-          <img src="dibujo_estrella.png" alt="Estrella" class="estrella-img"/>
+          <img 
+            [src]="num <= nivel_actual ? 'dibujo_estrella.png' : 'estrella_gris.png'" 
+            alt="Estrella" 
+            class="estrella-img"/>
           <span class="estrella-num">{{ num }}</span>
         </div>
       </div>
     </div>
 
     <div class="estrella-row">
-      <div class="estrella-item" *ngFor="let num of [11, 12, 13, 14, 15]" (click)="navigateToNivel(num)">
+      <div 
+        class="estrella-item" 
+        *ngFor="let num of [11, 12, 13, 14, 15]" 
+        [class.disabled]="num > nivel_actual"
+        (click)="num <= nivel_actual && navigateToNivel(num)">
         <div class="estrella">
-          <img src="dibujo_estrella.png" alt="Estrella" class="estrella-img"/>
+          <img 
+            [src]="num <= nivel_actual ? 'dibujo_estrella.png' : 'estrella_gris.png'" 
+            alt="Estrella" 
+            class="estrella-img"/>
           <span class="estrella-num">{{ num }}</span>
         </div>
       </div>

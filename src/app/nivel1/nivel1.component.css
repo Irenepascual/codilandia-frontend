@@ -1,8 +1,9 @@
-/* Contenedor principal */
+/* Estilo general */
 .nivel-container {
   background-color: #b3d9ff;
-  height: 100vh;
-  padding: 40px;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
   font-family: 'Arial', sans-serif;
   display: flex;
   flex-direction: column;
@@ -10,73 +11,7 @@
   text-align: center;
 }
 
-/* Título */
-h1 {
-  font-size: 4rem;
-  color: #2f4f4f;
-  margin-bottom: 20px;
-}
-
-/* Subtítulos */
-h2 {
-  font-size: 2rem;
-  color: #2f4f4f;
-  margin-bottom: 20px;
-}
-
-/* Texto descriptivo */
-.texto {
-  font-size: 1.5rem;
-  color: #2f4f4f;
-  margin-bottom: 20px;
-}
-
-/* Contenedor de texto e imagen alineados en fila */
-.row {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin-bottom: 30px;
-  align-items: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: rgb(254, 255, 255);
-  border-radius: 20px;
-  margin: 20px;
-}
-
-/* Contenedor de imágenes */
-.image {
-  width: 45%;
-  border-radius: 15px;
-  margin-left: 20px;
-}
-
-/* Contenedor de preguntas y respuestas */
-.question-container {
-  margin: 20px 0;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Botón para terminar el nivel */
-.btn-finish {
-  padding: 15px 30px;
-  font-size: 1.5rem;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 40px;
-}
-
-.btn-finish:hover {
-  background-color: #45a049;
-}
-
+/* Botón volver */
 .volver {
   position: absolute;
   top: 20px;
@@ -86,4 +21,99 @@ h2 {
   font-size: 1em;
   cursor: pointer;
   font-weight: 600;
+}
+
+/* Título */
+h1 {
+  font-size: 2.8rem;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+/* Caja de contenido */
+.info-box {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Texto */
+.info-box .text {
+  flex: 1;
+}
+
+.info-box h2 {
+  color: #375ea6;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.info-box p {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Imagen */
+.info-box img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Botón finalizar */
+.btn-finish {
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.btn-finish:hover {
+  background-color: #45a049;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 768px) {
+  .info-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-box img {
+    width: 70%;
+    max-width: 250px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .info-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-box p {
+    font-size: 1rem;
+  }
+
+  .btn-finish {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
 }
