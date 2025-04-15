@@ -13,6 +13,9 @@ import { SolictudesComponent } from './solictudes/solictudes.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { Nivel1Component } from './nivel1/nivel1.component';
+import { Nivel2Component } from './nivel2/nivel2.component';
+import { Nivel3Component } from './nivel3/nivel3.component';
+
 
 export const routes: Routes = [
   { path: '', component: InicioComponent }, 
@@ -26,7 +29,9 @@ export const routes: Routes = [
   { path: 'solicitudes/:codigo', component: SolictudesComponent},
   { path: 'alumnos/:codigo', component: AlumnosComponent},
   { path: 'estadisticas/:codigo', component: EstadisticasComponent},
-  { path: 'nivel1', component: Nivel1Component }
+  { path: 'nivel1', component: Nivel1Component },
+  { path: 'nivel2', component: Nivel2Component },
+  { path: 'nivel3', component: Nivel3Component }
 
 ];
 

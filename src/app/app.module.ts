@@ -12,6 +12,9 @@ import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { NivelesNinosComponent } from './nivelesNinos/nivelesNinos.component';
 import { AppRoutingModule } from './app.routes';  
 import { Nivel1Component } from './nivel1/nivel1.component';
+import { Nivel2Component } from './nivel2/nivel2.component';
+import { Nivel3Component } from './nivel3/nivel3.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { Nivel1Component } from './nivel1/nivel1.component';
     InicioNinoComponent,
     RecuperacionComponent,
     NivelesNinosComponent,
-    Nivel1Component  
+    Nivel1Component,
+    Nivel2Component,
+    Nivel3Component  
   ],
   imports: [
     BrowserModule,

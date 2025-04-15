@@ -1,0 +1,145 @@
+<div class="nivel3-container">
+  <button class="volver" (click)="router.navigate(['/nivelesNinos'])">◀ VOLVER</button>
+
+  <h1>Impresión y Variables</h1>
+
+  <div class="prueba">
+    <h2>🖨️ ¿Qué es imprimir en pantalla? 🖨️</h2>
+    <p>
+      Imprimir no significa usar una impresora. En programación, <strong>imprimir</strong> significa mostrar algo en la pantalla. Para hacerlo, usamos <code>printf</code>.
+    </p>
+    <p>Por ejemplo:</p>
+    <code>printf("¡Hola mundo!");</code> <br /> <br />
+    👉 Muestra: <b>¡Hola mundo!</b> <br /> <br />
+    <p>Todo lo que esté entre comillas ("...") es lo que se verá.</p>
+  </div>
+
+  <!-- Ejercicio 1 - Mostrar mensaje -->
+  <div class="prueba">
+    <h2>1. Mostrar un mensaje</h2>
+    <p>Escribe un mensaje para mostrar en la pantalla del ordenador importante que esté entre " ":</p>
+    <input type="text" [(ngModel)]="frase1" [disabled]="resueltos.frase1" />
+    <button class="btn-verificar" (click)="verificarFrase1()" [disabled]="resueltos.frase1">Verificar</button><br />
+
+    <!-- Mostrar consola SOLO si hay texto -->
+    <div class="consola-mockup" *ngIf="frase1.trim().length > 0">
+        <div class="pantalla">{{ frase1 }}</div>
+    </div>
+
+    <div class="ordenador-consola">
+        <img src="ordenador.png" alt="ordenador" class="img-ordenador" />
+        <img src="holamundo.png" alt='Texto printf("HOLA MUNDO")' class="texto-ordenador" />
+    </div>      
+  
+    <p *ngIf="resueltos.frase1">
+      <span *ngIf="correctos.frase1">✅</span>
+      <span *ngIf="!correctos.frase1">❌</span>
+      <code>printf({{ frase1 }});</code>
+    </p>
+  </div>
+  
+  <!-- Ejercicio 2 - Saludo personalizado -->
+  <div class="prueba">
+    <h2>2. Saludo personalizado</h2>
+    <p>Debes lograr que el ordenador muestre: <code>Hola Juan!</code></p>
+    <p><strong>¿Cómo lo haces?</strong> Escribe el contenido completo del printf.</p>
+    <p><strong>Ejemplo: </strong> <code>printf("Hola chicos y chicas, estoy imprimiendo por pantalla");</code></p>
+  
+    <input type="text" [(ngModel)]="frase2" [disabled]="resueltos.frase2" />
+    <button class="btn-verificar" (click)="verificarSaludo()" [disabled]="resueltos.frase2">Verificar</button> <br />
+  
+    <!-- Mostrar consola SOLO si hay texto -->
+    <div class="consola-mockup" *ngIf="frase2.trim().length > 0">
+        <div class="pantalla">{{ frase2 }}</div>
+    </div>
+  
+    <p *ngIf="resueltos.frase2">
+      <span *ngIf="correctos.frase2">✅</span>
+      <span *ngIf="!correctos.frase2">❌</span>
+      <code>{{ frase2 }}</code>
+    </p>
+  </div>
+  
+  
+  
+  <!-- Variables (INT, FLOAT, BOOL, STRING) -->
+  <div class="prueba">
+    <h2>3. Variables</h2>
+    <p>Las variables las vimos en el nivel 2. Estas variables guardan valores, y se puede imprimir por pantalla también lo que guarda una variable.</p><br />
+    <p><strong>Notacion: </strong> printf(nombre_de_la_variable)</p>
+    <p><strong>MUY IMPORTANTE!</strong> Las variables no van entre " ".</p><br />
+  
+    <!-- INT -->
+    <p><strong>📘 Escribe: 📘</strong><br /><code>int edad = 10;</code></p>
+    <input type="text" [(ngModel)]="var_int" [disabled]="resueltos.int" />
+    <button class="btn-verificar" (click)="verificarVar('int')" [disabled]="resueltos.int">Verificar</button><br />
+
+    <!-- Consola dinámica -->
+    <div class="consola-mockup" *ngIf="var_int.trim().length > 0 || resueltos.int">
+    <div class="pantalla">
+        {{ var_int }}<br />
+        <span *ngIf="correctos.int">>> 10</span>
+    </div>
+    </div>
+
+    <p *ngIf="resueltos.int">
+    <span *ngIf="correctos.int">✅</span>
+    <span *ngIf="!correctos.int">❌</span>
+    </p>
+
+    <!-- FLOAT -->
+    <p><strong>📘 Escribe: 📘</strong><br /><code>float altura = 1.75;</code></p>
+    <input type="text" [(ngModel)]="var_float" [disabled]="resueltos.float" />
+    <button class="btn-verificar" (click)="verificarVar('float')" [disabled]="resueltos.float">Verificar</button><br />
+
+    <div class="consola-mockup" *ngIf="var_float.trim().length > 0 || resueltos.float">
+    <div class="pantalla">
+        {{ var_float }}<br />
+        <span *ngIf="correctos.float">>> 1.75</span>
+    </div>
+    </div>
+
+    <p *ngIf="resueltos.float">
+    <span *ngIf="correctos.float">✅</span>
+    <span *ngIf="!correctos.float">❌</span>
+    </p>
+
+    <!-- BOOL -->
+    <p><strong>📘 Escribe: 📘</strong><br /><code>bool me_gusta_chocolate = true;</code></p>
+    <input type="text" [(ngModel)]="var_bool" [disabled]="resueltos.bool" />
+    <button class="btn-verificar" (click)="verificarVar('bool')" [disabled]="resueltos.bool">Verificar</button><br />
+
+    <div class="consola-mockup" *ngIf="var_bool.trim().length > 0 || resueltos.bool">
+    <div class="pantalla">
+        {{ var_bool }}<br />
+        <span *ngIf="correctos.bool">>> true</span>
+    </div>
+    </div>
+
+    <p *ngIf="resueltos.bool">
+    <span *ngIf="correctos.bool">✅</span>
+    <span *ngIf="!correctos.bool">❌</span>
+    </p>
+
+    <!-- STRING -->
+    <p><strong>📘 Escribe: 📘</strong><br /> <code>string nombre = "Sofia";</code></p>
+    <input type="text" [(ngModel)]="var_string" [disabled]="resueltos.string" />
+    <button class="btn-verificar" (click)="verificarVar('string')" [disabled]="resueltos.string">Verificar</button><br />
+
+    <div class="consola-mockup" *ngIf="var_string.trim().length > 0 || resueltos.string">
+    <div class="pantalla">
+        {{ var_string }}<br />
+        <span *ngIf="correctos.string">>> Sofia</span>
+    </div>
+    </div>
+
+    <p *ngIf="resueltos.string">
+    <span *ngIf="correctos.string">✅</span>
+    <span *ngIf="!correctos.string">❌</span>
+    </p>
+
+  </div>  
+
+  <!-- Botón final -->
+  <button class="btn-finish" (click)="finishLevel()" [disabled]="!puedeFinalizar">Terminar Nivel</button>
+</div>
