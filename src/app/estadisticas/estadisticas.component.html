@@ -43,8 +43,8 @@
                     <button class="close-btn" (click)="closePopup()">&times;</button>
                 </div>
                 <div class="popup-body">
-                    <p><strong>Correo:</strong> {{selectedAlumno?.correo_nino}}</p>
-                    <p><strong>Nivel actual:</strong> {{selectedAlumno?.nivel_actual}}</p>
+                    <p class="black"><strong>Correo:</strong> {{selectedAlumno?.correo_nino}}</p>
+                    <p class="black"><strong>Nivel actual:</strong> {{selectedAlumno?.nivel_actual}}</p>
                     
                     <h3>Notas por nivel:</h3>
                     <div *ngIf="selectedAlumno?.notas">

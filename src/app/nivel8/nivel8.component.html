@@ -1,0 +1,182 @@
+<div class="nivel8-container">
+    <button class="volver" (click)="router.navigate(['/nivelesNinos'])">◀ VOLVER</button>
+  
+    <h1>Condicionales if, else y else if</h1>
+  
+    <div class="prueba">
+      <h2>🛤️ ¿Y si el camino se divide?</h2>
+      <p>
+        A veces, los programas tienen que <strong>elegir qué hacer</strong>. Por ejemplo, si llueve, usamos paraguas ☔. Si hace sol, ¡vamos al parque! ☀️
+      </p>
+      <p>Para esto usamos <code>if</code>, <code>else</code> y <code>else if</code>.</p>
+  
+      <h3>🚦 Ejemplo 1: Solo si pasa algo</h3>
+      <p>Si tengo hambre, como una manzana 🍎</p>
+
+      <pre><code>if (tengo_hambre) {{ '{' }}
+        comer("manzana");
+  {{ '}' }}<code style="color: white" >                    </code></code></pre>
+    </div>
+
+    <div class="prueba">
+      <h2>1. Escribe una decisión con if</h2>
+      <p>Escribe una decisión que ejecute <strong>leer("libro")</strong></p>
+      <p><strong>Ejemplo Notación:</strong></p>
+        <pre><code>if (tengo_sueño) {{ '{' }}
+      dormir("siesta");
+{{ '}' }}<code style="color: white" >                  </code></code></pre>
+      <pre class="esp"><code class="enunciado"> if (estoy_aburrido) {{ '{' }}</code></pre>
+      <input type="text" [(ngModel)]="comentario1" [disabled]="resueltos.comentario1" />
+      <pre><code class="enunciado">{{ '}' }}</code></pre>
+      <button class="btn-verificar" (click)="verificarPrueba1()"  [disabled]="resueltos.comentario1">Verificar</button>
+      <div *ngIf="resueltos.comentario1">
+        <span *ngIf="correctos.comentario1">✅ ¡Correcto!</span>
+        <span *ngIf="!correctos.comentario1">❌ La respuesta era: <code>leer("libro");</code></span>
+        <p>Tu respuesta: <code>{{ comentario1 }}</code></p>
+      </div>
+
+      <div *ngIf="!correctos.comentario1 || !resueltos.comentario1" class="nota">
+        <img src="nino-aburrido.png" alt="nino-aburrido" class="nino-aburrido" />
+      </div> 
+
+      <div *ngIf="correctos.comentario1" class="nota">
+        <img src="nino-leyendo.png" alt="nino-leyendo" class="nino-aburrido" />
+      </div> 
+    </div>
+
+    <div class="prueba">
+      <h3>🚥 Ejemplo 2: ¿Y si no sucede?</h3>
+      <p>Si tengo frío, me pongo una chaqueta 🧥. Si no, voy en camiseta 👕</p>
+      <pre><code>if (tengo_frio) {{ '{' }}
+        poner("chaqueta");
+        {{ '}' }} else {{ '{' }}<code style="color: white" >                 </code>
+        poner("camiseta");
+  {{ '}' }}<code style="color: white" >                  </code></code></pre>
+    </div>
+
+    <div class="prueba">
+      <h2>2. Escribe una decisión con if y else</h2>
+      <p>Escribe una decisión que ejecute <strong>jugar("casa")</strong> y <strong>jugar("fuera")</strong>
+      en el lugar correcto según la condición proporcionada.</p>
+      <strong>Ejemplo Notación: </strong>
+        <pre><code>if (tengo_frio) {{ '{' }}
+          poner("chaqueta");
+        {{ '}' }} else {{ '{' }}<code style="color: white" >                 </code>
+          poner("camiseta");
+  {{ '}' }}<code style="color: white" >                  </code></code></pre>
+      <pre class= "esp"><code class="enunciado">if (llueve) {{ '{' }}</code></pre>
+      <input type="text" [(ngModel)]="comentario2" [disabled]="resueltos.comentario2" />
+      <pre><code class="enunciado">{{ '}' }}</code></pre>
+
+      <pre><code class="enunciado">else {{ '{' }}</code></pre>
+      <input type="text" [(ngModel)]="comentario3" [disabled]="resueltos.comentario3" />
+      <pre><code class="enunciado">{{ '}' }}</code></pre>
+
+      <button class="btn-verificar" (click)="verificarPrueba2()"  [disabled]="resueltos.comentario3">Verificar</button>
+
+      <div *ngIf="resueltos.comentario3 && resueltos.comentario2">
+        <span *ngIf="correctos.comentario3 && correctos.comentario2">✅ ¡Correcto!</span>
+        <span *ngIf="!correctos.comentario3 || !correctos.comentario2">❌ La respuesta era: <code>jugar("casa");</code> y <code>jugar("fuera");</code></span>
+        <p>Tu respuesta: <code>{{ comentario2 }} {{ comentario3 }}</code></p>
+      </div>
+
+      <div *ngIf="!resueltos.comentario2" class="nota2">
+        <img src="nino-sol-lluvia.png" alt="nino jugando en casa nino jugando fuera" class="nino-aburrido" />
+      </div> 
+    </div>
+
+    <div class="prueba">
+      <h3>🏞️ Ejemplo 3: Muchos caminos</h3>
+      <p>Si es lunes, voy a la escuela 📚. Si es sábado, juego en casa 🕹️. Si es domingo, visito a mis abuelos 👵👴</p>
+      <pre><code>if (dia == "lunes") {{ '{' }}
+      ir("escuela");
+        {{ '}' }} else if (dia == "sabado") {{ '{' }}<code style="color: white" ></code>
+      jugar("casa");
+          {{ '}' }} else if (dia == "domingo") {{ '{' }}<code style="color: white" > </code>
+           visitar("abuelos");
+{{ '}' }}<code style="color: white" >                    </code></code></pre>
+    </div>
+
+    <div class="prueba">
+      <h2>3. Escribe una decisión con if y else if</h2>
+      <p>Escribe una decisión que ejecute <strong>pintar("cielo")</strong>, 
+        <strong>pintar("sol")</strong> y <strong>pintar("planta")</strong>
+      en el lugar correcto según las condiciones proporcionadas.</p>
+      <strong>Ejemplo Notación: </strong>
+        <pre><code>if (dia == "lunes") {{ '{' }}
+          ir("escuela");
+            {{ '}' }} else if (dia == "sabado") {{ '{' }}<code style="color: white" >    </code>
+          jugar("casa");
+              {{ '}' }} else if (dia == "domingo") {{ '{' }}<code style="color: white" >     </code>
+               visitar("abuelos");
+{{ '}' }}<code style="color: white" >                    </code></code></pre>
+      <pre class="esp"><code class="enunciado">if (color == "amarillo") {{ '{' }}</code></pre>
+      <input type="text" [(ngModel)]="comentario4" [disabled]="resueltos.comentario4" />
+      <pre><code class="enunciado">{{ '}' }}</code></pre>
+
+      <pre><code class="enunciado">else if (color == "azul") {{ '{' }}</code></pre>
+      <input type="text" [(ngModel)]="comentario5" [disabled]="resueltos.comentario5" />
+      <pre><code class="enunciado">{{ '}' }}</code></pre>
+
+      <pre><code class="enunciado">else if  (color == "verde"){{ '{' }}</code></pre>
+      <input type="text" [(ngModel)]="comentario6" [disabled]="resueltos.comentario6" />
+      <pre><code class="enunciado">{{ '}' }}</code></pre>
+
+      <button class="btn-verificar" (click)="verificarPrueba3()"  [disabled]="resueltos.comentario4 && resueltos.comentario5 && resueltos.comentario6">Verificar</button>
+
+      <div *ngIf="correctos.comentario4 && correctos.comentario5 && correctos.comentario6" class="nota">
+        <img  src="planta_bajo_el_sol.png" alt="nino-aburrido" class="planta" />
+      </div> 
+      
+      <div *ngIf="!resueltos.comentario4 || !correctos.comentario4 || !correctos.comentario5 || !correctos.comentario6" class="nota">
+        <img  src="planta_bajo_el_sol_BN.png" alt="nino-aburrido" class="planta" />
+      </div> 
+
+      <div *ngIf="resueltos.comentario4 && resueltos.comentario5 && resueltos.comentario6">
+        <span *ngIf="correctos.comentario4 && correctos.comentario5 && correctos.comentario6">✅ ¡Correcto!</span>
+        <span *ngIf="!correctos.comentario4 || !correctos.comentario5 || !correctos.comentario6">
+          ❌ Incorrecto</span>
+        <p>Tu respuesta: <code>{{ comentario4 }} {{ comentario5 }} {{ comentario6 }}</code></p>
+      </div>
+    </div>
+
+
+
+    <div class="prueba">
+      <h2>4. Completa las condiciones según las líneas de código</h2>
+      <p>Escribe las siguientes condiciones en el hueco correspondiente:
+        <p><strong  #texto1><span style="color: #00008b">mesActual</span> == <span style="color: #178b00">Marzo</span> || <span style="color: #00008b">mesActual</span>== <span style="color: #178b00">Abril</span> || <span style="color: #00008b">mesActual</span> == <span style="color: #178b00">Mayo</span></strong><button class="copy" (click)="copiarAlPortapapeles(texto1)"> Copiar texto</button></p>
+        <p><strong  #texto2><span style="color: #00008b">mesActual</span> == <span style="color: #178b00">Junio</span> || <span style="color: #00008b">mesActual</span>== <span style="color: #178b00">Julio</span> || <span style="color: #00008b">mesActual</span> == <span style="color: #178b00">Agosto</span></strong><button class="copy" (click)="copiarAlPortapapeles(texto2)"> Copiar texto</button></p>
+        <p><strong  #texto3><span style="color: #00008b">mesActual</span> == <span style="color: #178b00">Diciembre</span> || <span style="color: #00008b">mesActual</span>== <span style="color: #178b00">Enero</span> || <span style="color: #00008b">mesActual</span> == <span style="color: #178b00">Febrero</span></strong><button class="copy" (click)="copiarAlPortapapeles(texto3)"> Copiar texto</button></p>
+
+        <div *ngIf="mensajeCopiado" class="mensaje-copiado">
+          {{ mensajeCopiado }}
+        </div>
+        
+      <pre class= "esp"></pre>
+      <code class="enunciado">if ( </code> <input type="text" [(ngModel)]="comentario7" [disabled]="resueltos.comentario7" /><code class="enunciado">  ) {{ '{' }}</code>
+      <pre><code class="enunciado"> printf("Estamos en Verano");</code></pre>
+
+      <code class="enunciado">{{ '}' }} else if (  </code> <input type="text" [(ngModel)]="comentario8" [disabled]="resueltos.comentario8" /><code class="enunciado">  ) {{ '{' }}</code>
+      <pre><code class="enunciado">   printf("Estamos en Invierno");</code></pre>
+   
+      <code class="enunciado"> {{ '}' }} else if (  </code> <input type="text" [(ngModel)]="comentario9" [disabled]="resueltos.comentario9" /><code class="enunciado">  ) {{ '{' }}</code>
+      <pre><code class="enunciado">    printf("Estamos en Primavera");</code></pre>
+      <pre><code class="enunciado">{{ '}' }} else {{ '{' }}</code><code style="color: white" >                                                                </code></pre>
+
+      <pre><code class="enunciado">printf("Estamos en Otoño");</code></pre>
+      <pre><code class="enunciado">{{ '}' }}</code><code style="color: white" >                                                                          </code></pre>
+
+      <button class="btn-verificar" (click)="verificarPrueba4()"  [disabled]="resueltos.comentario7 && resueltos.comentario8 && resueltos.comentario9">Verificar</button>
+
+      <div *ngIf="resueltos.comentario7 && resueltos.comentario8 && resueltos.comentario9">
+        <span *ngIf="correctos.comentario7 && correctos.comentario8 && correctos.comentario9">✅ ¡Correcto!</span>
+        <span *ngIf="!correctos.comentario7 || !correctos.comentario8 || !correctos.comentario9">❌ Respuesta incorrecta</span>
+        <p>Tu respuesta: <code>{{ comentario7 }} {{ comentario8 }} {{ comentario9 }}</code></p>
+      </div>
+    </div>
+
+
+    <button class="btn-finish" (click)="finishLevel()" [disabled]="!puedeFinalizar">Terminar Nivel</button>
+  </div>
+  

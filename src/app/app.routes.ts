@@ -15,6 +15,11 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { Nivel1Component } from './nivel1/nivel1.component';
 import { Nivel2Component } from './nivel2/nivel2.component';
 import { Nivel3Component } from './nivel3/nivel3.component';
+import { Nivel7Component } from './nivel7/nivel7.component';
+import { Nivel8Component } from './nivel8/nivel8.component';
+import { Nivel9Component } from './nivel9/nivel9.component';
+import { Nivel10Component } from './nivel10/nivel10.component';
+
 
 
 export const routes: Routes = [
@@ -31,7 +36,11 @@ export const routes: Routes = [
   { path: 'estadisticas/:codigo', component: EstadisticasComponent},
   { path: 'nivel1', component: Nivel1Component },
   { path: 'nivel2', component: Nivel2Component },
-  { path: 'nivel3', component: Nivel3Component }
+  { path: 'nivel3', component: Nivel3Component },
+  { path: 'nivel7', component: Nivel7Component },
+  { path: 'nivel8', component: Nivel8Component },
+  { path: 'nivel9', component: Nivel9Component },
+  { path: 'nivel10', component: Nivel10Component }
 
 ];
 

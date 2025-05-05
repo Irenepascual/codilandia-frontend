@@ -73,12 +73,12 @@ export class EstadisticasComponent implements OnInit {
     }
   };
   
-  public barChartLabels: string[] = Array.from({ length: 15 }, (_, i) => `Nivel ${i + 1}`);
+  public barChartLabels: string[] = Array.from({ length: 12 }, (_, i) => `Nivel ${i + 1}`);
   public barChartData: ChartData<'bar'> = {
-    labels: Array.from({ length: 15 }, (_, i) => `Nivel ${i + 1}`),
+    labels: Array.from({ length: 12 }, (_, i) => `Nivel ${i + 1}`),
     datasets: [
       {
-        data: Array(15).fill(0),
+        data: Array(12).fill(0),
         label: 'Número de alumnos',
         backgroundColor: '#42A5F5'
       }
@@ -138,15 +138,15 @@ export class EstadisticasComponent implements OnInit {
       const sumaNiveles = this.alumnos.reduce((total, alumno) => total + alumno.nivel_actual, 0);
       this.nivel_medio = parseFloat((sumaNiveles / this.alumnos.length).toFixed(2));
     
-      const niveles = Array(15).fill(0);
+      const niveles = Array(12).fill(0);
       this.alumnos.forEach(alumno => {
-        if (alumno.nivel_actual >= 1 && alumno.nivel_actual <= 15) {
+        if (alumno.nivel_actual >= 1 && alumno.nivel_actual <= 12) {
           niveles[alumno.nivel_actual - 1]++;
         }
       });
     
       this.barChartData = {
-        labels: Array.from({ length: 15 }, (_, i) => `Nivel ${i + 1}`),
+        labels: Array.from({ length: 12 }, (_, i) => `Nivel ${i + 1}`),
         datasets: [
           {
             data: niveles,

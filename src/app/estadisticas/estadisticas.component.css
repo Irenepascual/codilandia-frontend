@@ -232,6 +232,9 @@ body {
     align-self: center;
     font-size: 30px;
     color: white;
+    }
+.black{
+    color: black;
 }
 
   @keyframes spin {
