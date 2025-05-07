@@ -10,12 +10,12 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule] 
 })
 export class Nivel1Component implements OnInit {
-  correo_nino: string = '';  // Será obtenido desde query params (o de token si no vienen en la URL)
+  correo_nino: string = '';  
   nombre_nino: string = '';
   codigo_aula: string = '';
-  num_nivel: number = 1;   // Nivel 1
+  num_nivel: number = 1;  
   puntos_minimos: number = 0;
-  puntos_obtenidos: number = 0;  // Este valor puede ser dinámico
+  puntos_obtenidos: number = 0; 
   nivel_info: string = 'Nivel 1: Introducción a los Programas';
 
   constructor(
@@ -36,7 +36,6 @@ export class Nivel1Component implements OnInit {
     }
   }
 
-  // Decodifica el token JWT para obtener los datos del usuario
   decodeToken(token: string) {
     const payload = token.split('.')[1];
     const decoded = atob(payload);
@@ -62,7 +61,6 @@ export class Nivel1Component implements OnInit {
       next: (res) => {
         console.log('Nivel actualizado', res);
   
-        // ✅ ACTUALIZAMOS el token con el mismo payload (por si acaso)
         const oldToken = localStorage.getItem('auth_token');
         if (!oldToken) return;
   

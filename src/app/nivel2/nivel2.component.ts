@@ -33,7 +33,6 @@ export class Nivel2Component implements OnInit {
   sumaMonedas: number = 0;
 
 
-  // Estado
   resueltoEntero = false;
   resueltoReal = false;
   resueltoPastel = false;
@@ -41,7 +40,6 @@ export class Nivel2Component implements OnInit {
   resueltoString = false;
   resueltoFrase = false;
 
-  // Correctos individuales
   esEnteroCorrecto = false;
   esRealCorrecto = false;
   respuestaPastelCorrecta = false;
@@ -118,9 +116,9 @@ export class Nivel2Component implements OnInit {
 }
 
   verificarPlatanos() {
-    const sinEspacios = this.respuestaPlatanos.replace(/\s/g, '');
+    const sinEspacios = this.respuestaPlatanos.replace(/\s/g, '').toLowerCase();
     this.resueltoPlatanos = true;
-    this.respuestaPlatanosCorrecta = sinEspacios === 'intnumero_platanos=4;';
+    this.respuestaPlatanosCorrecta = sinEspacios === 'intnumero_bananas=4;';
     if (this.respuestaPlatanosCorrecta) {
       this.puntos_obtenidos++;
     }
@@ -159,8 +157,8 @@ export class Nivel2Component implements OnInit {
   }
 
   verificarFrase() {
-    const fraseUsuarioNormalizada = this.fraseUsuario.replace(/\s+/g, ''); // elimina TODOS los espacios
-    const fraseCorrectaNormalizada = 'stringfrase="Trestristestigrescomíantrigoenuntrigal";';
+    const fraseUsuarioNormalizada = this.fraseUsuario.replace(/\s+/g, '').toLowerCase(); // elimina TODOS los espacios
+    const fraseCorrectaNormalizada = 'stringfrase="trestristestigrescomíantrigoenuntrigal";';
   
     this.fraseCorrecta = fraseUsuarioNormalizada === fraseCorrectaNormalizada;
     this.resueltoFrase = true;

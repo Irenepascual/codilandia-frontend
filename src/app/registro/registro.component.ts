@@ -57,7 +57,7 @@ export class RegistroComponent {
           next: (loginRes) => {
             localStorage.setItem('auth_token', loginRes.token);
             const redirectRoute = this.tipoUsuario === 'adulto' 
-              ? '/inicio-adulto' 
+              ? '/profesor' 
               : '/inicio-nino';
             this.isLoading = false;
             this.router.navigate([redirectRoute]);

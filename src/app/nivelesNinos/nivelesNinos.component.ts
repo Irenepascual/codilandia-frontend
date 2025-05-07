@@ -13,6 +13,7 @@ export class NivelesNinosComponent implements OnInit {
   correo: string = '';
   nombre: string = '';
   nivel_actual: number = 1;
+  isLoading: boolean = false;
 
   constructor(private route: ActivatedRoute, public router: Router) {}
 
@@ -47,6 +48,7 @@ export class NivelesNinosComponent implements OnInit {
 
 
   getNivelActual(): void {
+    this.isLoading = true;
     fetch(`http://localhost:3000/api/aulas/nivel-actual/${this.correo}/${this.nombre}/${this.codigo_aula}`)
       .then(res => res.json())
       .then(data => {
@@ -57,6 +59,13 @@ export class NivelesNinosComponent implements OnInit {
           this.nivel_actual = 1; // valor por defecto si no viene nada
         }
       })
+      .catch(err => {
+        console.error('Error al obtener nivel actual:', err);
+        this.nivel_actual = 1;
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
   }
 
   navigateToNivel(nivel: number): void {

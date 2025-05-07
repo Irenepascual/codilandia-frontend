@@ -1,4 +1,4 @@
-.nivel3-container {
+.nivel11-container {
   max-width: 1250px;
   margin: auto;
   padding: 30px;
@@ -52,14 +52,12 @@ input[type="number"] {
   display: block;
   border: none;
   padding: 10px 16px;
-  color: white;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 20px;
   background-color: transparent;
-  color: #000000;
-  font-weight: 600;
+  color: #000;
   font-size: 1em;
   text-align: left !important;
 }
@@ -92,18 +90,18 @@ input[type="number"] {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .btn-verificar:hover {
   background-color: #0b7dda;
 }
 
-
 .recuadro-ejemplo {
-  border: 3px solid #ff8c00; 
-  background-color: #fff3e6; 
+  border: 3px solid #ff8c00;
+  background-color: #fff3e6;
   border-radius: 12px;
   padding: 10px 15px;
   font-size: 1.5rem;
-  display: inline-flex; 
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   margin: 15px auto;
@@ -153,6 +151,11 @@ input[type="number"] {
   font-size: 1.5rem;
 }
 
+.sangria {
+  display: inline-block;
+  padding-left: 40px; /* o 2rem si usas rem */
+}
+
 .lista-operadores {
   margin-top: 15px;
   background-color: #fff9e6;
@@ -180,53 +183,4 @@ input[type="number"] {
   border-radius: 6px;
   font-weight: bold;
   color: #b35e00;
-}
-
-/*-------------------------------------*/
-
-.ordenador-consola {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  width: 400px;
-  height: auto;
-}
-
-.img-ordenador {
-  width: 100%;
-  height: auto;
-  z-index: 1;
-}
-
-.texto-ordenador {
-  position: absolute;
-  top: 12%;
-  width: 70%;
-  height: auto;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.consola-mockup {
-  margin-top: 20px;
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: black;
-  border-radius: 12px;
-  min-width: 10px;
-  max-width: 100%;
-  overflow-x: auto;
-  text-align: center;
-}
-
-.pantalla {
-  color: #00FF00; 
-  font-family: 'Courier New', monospace;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px black;
-  white-space: nowrap;
-  text-align: left;
 }

@@ -25,6 +25,7 @@ export class InicioNinoComponent implements OnInit {
   constructor(public router: Router, private http: HttpClient) { } 
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.getUserData();
     this.obtenerCursos();
   }
@@ -55,6 +56,7 @@ export class InicioNinoComponent implements OnInit {
   }
 
   obtenerCursos(): void {
+    this.isLoading = true;
     this.http.get<any>(`http://localhost:3000/api/aulas/${this.correo}/${this.nombre}`).subscribe({
       next: (res) => {
         if (res.length > 0) {
@@ -62,10 +64,12 @@ export class InicioNinoComponent implements OnInit {
         } else {
           this.errorMessage = 'No tienes cursos asignados.';
         }
+        this.isLoading = false;
       },
       error: (err) => {
         console.error('Error al obtener cursos', err);
         this.errorMessage = 'No se pudieron cargar los cursos.';
+        this.isLoading = false;
       }
     });
   }
@@ -96,9 +100,7 @@ export class InicioNinoComponent implements OnInit {
         }
 
         const today = new Date().toISOString(); 
-        
-        this.isLoading = true;
-      
+              
         // Enviar la solicitud POST para incluir la solicitud
         this.http.post('http://localhost:3000/api/aulas/unirse', {
           correo: this.correo,
@@ -113,7 +115,6 @@ export class InicioNinoComponent implements OnInit {
           error: (err) => {
             console.error('Error al unirse al grupo:', err);
             this.successMessage = 'Error al enviar la solicitud';
-            this.isLoading = false;
           }
         });
       },

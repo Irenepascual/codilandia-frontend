@@ -4,6 +4,12 @@
     <img src="logo.png" alt="Logo de Codilandia" class="logo" />
   </div>
 
+  <div class="modal-overlay" *ngIf="isLoading">
+    <div class="spinner-modal">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  
   <h1>TUS NIVELES</h1>
 
   <div class="estrella-container">
@@ -39,10 +45,10 @@
       </div>
     </div>
 
-    <div class="estrella-row">
+    <div class="estrella-row2">
       <div 
         class="estrella-item" 
-        *ngFor="let num of [11, 12, 13, 14, 15]" 
+        *ngFor="let num of [11, 12]" 
         [class.disabled]="num > nivel_actual"
         (click)="num <= nivel_actual && navigateToNivel(num)">
         <div class="estrella">

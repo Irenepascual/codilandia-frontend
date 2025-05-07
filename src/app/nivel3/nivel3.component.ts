@@ -23,28 +23,38 @@ export class Nivel3Component implements OnInit {
 
   // Inputs
   frase1: string = '';
-  frase2: string = '';
+  saludo_sin_endl: string = '';
+  saludo_con_endl: string = '';
 
   var_int: string = '';
-  var_float: string = '';
+  var_double: string = '';
   var_bool: string = '';
   var_string: string = '';
 
-  // Estados
+
   resueltos = {
     frase1: false,
-    frase2: false,
+    saludo_sin_endl: false,
+    saludo_con_endl: false,
     int: false,
-    float: false,
+    double: false,
+    bool: false,
+    string: false,
+  };
+  
+  correctos = {
+    frase1: false,
+    saludo_sin_endl: false,
+    saludo_con_endl: false,
+    int: false,
+    double: false,
     bool: false,
     string: false
   };
 
-  correctos = {
-    frase1: false,
-    frase2: false,
+  conSalto = {
     int: false,
-    float: false,
+    double: false,
     bool: false,
     string: false
   };
@@ -90,32 +100,40 @@ export class Nivel3Component implements OnInit {
   }
   
   
-  verificarSaludo(): void {
-    const esperado = 'printf("Hola Juan!");';
-    const input = this.frase2.trim();
-    
-    this.resueltos.frase2 = true;
-    this.correctos.frase2 = input === esperado;
-  
-    if (this.correctos.frase2) this.puntos_obtenidos++;
+  verificarSaludoSinEndl(): void {
+    const normalizado = this.saludo_sin_endl.replace(/\s/g, '').toLowerCase();
+    this.resueltos.saludo_sin_endl = true;
+    this.correctos.saludo_sin_endl = normalizado === 'cout<<"holajuan!";';
+    if (this.correctos.saludo_sin_endl) this.puntos_obtenidos++;
     this.puedeFinalizar++;
-  }  
+  }
+  
+  verificarSaludoConEndl(): void {
+    const normalizado = this.saludo_con_endl.replace(/\s/g, '').toLowerCase();
+    this.resueltos.saludo_con_endl = true;
+    this.correctos.saludo_con_endl = normalizado === 'cout<<"holajuan!"<<endl;' || normalizado === 'cout<<"holajuan!"<<endl;';
+    if (this.correctos.saludo_con_endl) this.puntos_obtenidos++;
+    this.puedeFinalizar++;
+  }
 
-  verificarVar(tipo: 'int' | 'float' | 'bool' | 'string') {
-    const entrada = this[`var_${tipo}`].trim();
+  verificarVar(tipo: 'int' | 'double' | 'bool' | 'string') {
+    const entradaNormalizada = this[`var_${tipo}`].replace(/\s/g, '').toLowerCase();
+  
     const soluciones = {
-      int: 'printf(edad);',
-      float: 'printf(altura);',
-      bool: 'printf(me_gusta_chocolate);',
-      string: 'printf(nombre);'
+      int: ['cout<<edad<<endl;', 'cout<<edad;'],
+      double: ['cout<<altura<<endl;', 'cout<<altura;'],
+      bool: ['cout<<feliz<<endl;', 'cout<<feliz;'],
+      string: ['cout<<nombre<<endl;', 'cout<<nombre;']
     };
   
     this.resueltos[tipo] = true;
-    this.correctos[tipo] = entrada === soluciones[tipo];
-  
+    this.correctos[tipo] = soluciones[tipo].includes(entradaNormalizada);
+    this.conSalto[tipo] = entradaNormalizada.includes('endl');
+
     if (this.correctos[tipo]) this.puntos_obtenidos++;
     this.puedeFinalizar++;
   }
+  
   
 
   finishLevel(): void {
