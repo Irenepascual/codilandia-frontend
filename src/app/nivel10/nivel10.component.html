@@ -124,7 +124,7 @@ for (int i = 0; i < 2; i--) {{ '{' }}
         <h2>3. Quiz final: ¿Qué has aprendido sobre los bucles for?</h2>
         <p>¿Qué significa la parte <code>i++</code> en un bucle for?</p>
         <div *ngIf="!resueltos.comentario5" class="lista-opciones">
-            <label *ngFor="let opcion of opciones2">
+            <label *ngFor="let opcion of opciones2" class="opcion">
                 <input type="radio" name="comentario5" [value]="opcion" [(ngModel)]="comentario5" />
                 {{ opcion }}
             </label>
@@ -144,7 +144,7 @@ for (int i = 0; i < 4; i++) {{ '{' }}
 {{ '}' }}<code style="color: white" >                           </code></code></pre>
         <p>¿Cuántas veces se ejecuta <code>saludo()</code>?</p>
         <div *ngIf="!resueltos.comentario6" class="lista-opciones">
-            <label *ngFor="let opcion of opciones3">
+            <label *ngFor="let opcion of opciones3" class="opcion">
                 <input type="radio" name="comentario6" [value]="opcion" [(ngModel)]="comentario6" />
                 {{ opcion }}
             </label>
@@ -164,7 +164,7 @@ for (int i = 0; i < 4; i++) {{ '{' }}
     {{ '}' }}<code style="color: white" >                           </code></code></pre>
         <p>¿Qué hace este bucle?</p>
         <div *ngIf="!resueltos.comentario7" class="lista-opciones">
-            <label *ngFor="let opcion of opciones4">
+            <label *ngFor="let opcion of opciones4" class="opcion">
                 <input type="radio" name="comentario6" [value]="opcion" [(ngModel)]="comentario7" />
                 {{ opcion }}
             </label>
