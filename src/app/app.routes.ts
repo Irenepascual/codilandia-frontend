@@ -15,6 +15,10 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { Nivel1Component } from './nivel1/nivel1.component';
 import { Nivel2Component } from './nivel2/nivel2.component';
 import { Nivel3Component } from './nivel3/nivel3.component';
+import { Nivel4Component } from './nivel4/nivel4.component';
+import { Nivel5Component } from './nivel5/nivel5.component';
+import { Nivel6Component } from './nivel6/nivel6.component';
+import { Nivel11Component } from './nivel11/nivel11.component';
 
 
 export const routes: Routes = [
@@ -31,8 +35,11 @@ export const routes: Routes = [
   { path: 'estadisticas/:codigo', component: EstadisticasComponent},
   { path: 'nivel1', component: Nivel1Component },
   { path: 'nivel2', component: Nivel2Component },
-  { path: 'nivel3', component: Nivel3Component }
-
+  { path: 'nivel3', component: Nivel3Component },
+  { path: 'nivel4', component: Nivel4Component },
+  { path: 'nivel5', component: Nivel5Component },
+  { path: 'nivel6', component: Nivel6Component },
+  { path: 'nivel11', component: Nivel11Component }
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);

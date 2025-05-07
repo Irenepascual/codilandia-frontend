@@ -4,6 +4,12 @@
     <img src="logo.png" alt="Logo de Codilandia" class="logo" />
   </div>
 
+  <div class="modal-overlay" *ngIf="isLoading">
+    <div class="spinner-modal">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  
   <div class="content">
     <div class="nombre-container">
       <h1>{{ nombre }}</h1>
