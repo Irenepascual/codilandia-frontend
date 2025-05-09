@@ -1,39 +1,35 @@
 <div class="nivel7-container">
     <button class="volver" (click)="router.navigate(['/nivelesNinos'])">◀ VOLVER</button>
   
-    <h1>Comentarios</h1>
+    <h1>💬NIVEL 7: COMENTARIOS💬</h1>
   
     <div class="prueba">
-        <h2>💬 ¿Qué es un comentario en código?</h2>
+        <h2>📚¿QUÉ ES UN COMENTARIO EN CÓDIGO?📚</h2>
         <p>
           Un <strong>comentario</strong> es una nota que escribimos en el código para que las personas lo entiendan mejor. ¡El ordenador los ignora!
         </p>
         <p>En muchos lenguajes, los comentarios se escriben con <code>//</code> al principio de la línea:</p>
         <code class="comentario-code">// Este es un comentario</code><br><br>
         <p>También pueden estar al final de una línea de código:</p>
-        <code>printf("Hola"); </code> <code class="comentario-code">// Imprime un saludo</code>
-    </div>
-      
-  
-    <!-- Ejercicio 1 - Mostrar comentario -->
-    <div class="prueba">
-        <h2>1. Escribe un comentario</h2>
+        <code>cout << "Hola"; </code> <code class="comentario-code">// Imprime un saludo</code>
+        <br/><br/><br/><hr /><br/>
+
+        <h2>📝escribe un comentario📝</h2>
         <p>Escribe un comentario que diga "Este programa saluda".</p>
-        <p><strong>Ejemplo Notación: </strong> <code class="comentario-code">// Este es un comentario</code></p>
+        <p class="recuadro-ejemplo"><strong>Ejemplo Notación: </strong> <code class="comentario-code">// Este es un comentario</code></p><br/>
         <input type="text" [(ngModel)]="comentario1" [disabled]="resueltos.comentario1" />
         <button class="btn-verificar" (click)="verificarComentario1()" [disabled]="resueltos.comentario1">Verificar</button>
         <div class="nota">
             <img src="comentario.png" alt="comentario" class="comentario" />
         </div> 
         <div *ngIf="resueltos.comentario1">
-          <span *ngIf="correctos.comentario1">✅ ¡Correcto!</span>
-          <span *ngIf="!correctos.comentario1">❌ Prueba otra vez</span>
-          <p>Tu comentario: <code>{{ comentario1 }}</code></p>
+          <span *ngIf="correctos.comentario1">✅</span>
+          <span *ngIf="!correctos.comentario1">❌</span>
         </div>
       </div>
 
       <div class="prueba">
-        <h2>¿Cómo distinguimos los comentarios?</h2>
+        <h2>📚¿CÓMO DISTINGUIMOS LOS COMENTARIOS?📚</h2>
         <p> 
           Los <strong>comentarios</strong> se ven de un 
           <span style="color:#006400; font-weight:bold;">color diferente</span> 
@@ -47,10 +43,9 @@
         <p> 
             Esto nos ayuda a saber qué parte del texto <strong>le habla a las personas</strong> y qué parte <strong>le habla al ordenador</strong>. 
         </p>
-      </div>
+        <br/><br/><br/><hr /><br/>
 
-      <div class="prueba">
-        <h2>🎨 Elige el color de tus comentarios</h2>
+        <h2>📝elige el color de tus comentarios📝</h2>
         
         <p>Selecciona tu color favorito para los comentarios:</p>
       
@@ -70,9 +65,9 @@
       
 
       <div class="prueba">
-        <h2>2. ¿Qué comentario se ajusta mejor a cada línea de código?</h2>
+        <h2>📝¿qué comentario se ajusta mejor a cada línea de código?📝</h2>
         <p class="sp">Selecciona la opción adecuada para cada caso.</p>
-        <p><code>printf("Adiós");</code></p>
+        <p><code>cout << "Adiós";</code></p>
       
         <div *ngIf="!resueltos.comentario2" class="lista-opciones">
           <label *ngFor="let opcion of opcionesComentario2" [style.color]="colorComentario" class="opcion comentario-code">
@@ -83,9 +78,10 @@
         </div>
       
         <div *ngIf="resueltos.comentario2">
-          <span *ngIf="correctos.comentario2">✅ ¡Bien hecho!</span>
-          <span *ngIf="!correctos.comentario2">❌ La respuesta era: <code class="comentario-code" [style.color]="colorComentario">// Este código imprime un adiós</code></span>
-          <p>Tu respuesta: <code class="comentario-code" [style.color]="colorComentario">{{ comentario2 }}</code></p>
+          <span *ngIf="correctos.comentario2">✅</span>
+          <span *ngIf="!correctos.comentario2">❌</span>
+          <p *ngIf="correctos.comentario2">Tu respuesta: <br/><code class="comentario-code" [style.color]="colorComentario">{{ comentario2 }}</code></p>
+          <p *ngIf="!correctos.comentario2">La respuesta era: <br/><code class="comentario-code" [style.color]="colorComentario">// Este código imprime un adiós</code></p>
         </div>
 
         <br /><hr><br />
@@ -100,9 +96,10 @@
         </div>
       
         <div *ngIf="resueltos.comentario3">
-          <span *ngIf="correctos.comentario3">✅ ¡Bien hecho!</span>
-          <span *ngIf="!correctos.comentario3">❌ La respuesta era: <code class="comentario-code" [style.color]="colorComentario">// Declara una variable entera llamada total</code></span>
-          <p>Tu respuesta: <code class="comentario-code" [style.color]="colorComentario">{{ comentario3 }}</code></p>
+          <span *ngIf="correctos.comentario3">✅</span>
+          <span *ngIf="!correctos.comentario3">❌</span>
+          <p *ngIf="correctos.comentario3">Tu respuesta: <br/><code class="comentario-code" [style.color]="colorComentario">{{ comentario3 }}</code></p>
+          <p *ngIf="!correctos.comentario3">La respuesta era: <br/><code class="comentario-code" [style.color]="colorComentario">// Declara una variable entera llamada total</code></p>
         </div>
 
         <br /><hr><br />
@@ -117,41 +114,68 @@
         </div>
       
         <div *ngIf="resueltos.comentario4">
-          <span *ngIf="correctos.comentario4">✅ ¡Bien hecho!</span>
-          <span *ngIf="!correctos.comentario4">❌ La respuesta era: <code class="comentario-code" [style.color]="colorComentario">// Suma los valores de "x" e "y" y los guarda en la variable suma</code></span>
-          <p>Tu respuesta: <code class="comentario-code" [style.color]="colorComentario">{{ comentario4 }}</code></p>
+          <span *ngIf="correctos.comentario4">✅</span>
+          <span *ngIf="!correctos.comentario4">❌</span>
+          <p *ngIf="correctos.comentario4">Tu respuesta:<br/> <code class="comentario-code" [style.color]="colorComentario">{{ comentario4 }}</code></p>
+          <p *ngIf="!correctos.comentario4">La respuesta era: <br/> <code class="comentario-code" [style.color]="colorComentario">// Suma los valores de "x" e "y" y los guarda en la variable suma</code></p>
         </div>
       </div>
 
       <div class="prueba">
 
-        <h2>3. Asigna cada comentario a su línea de código correspondiente</h2>
-        <h3>Para ello debes ordenar los comentarios de la derecha arrastrando con el ratón.</h3>
-        <div class="row">
-          <div class="col  com1 comentarios">
-            <div *ngFor="let codigo of codigoConHuecos">
-              <code>{{ codigo.codigo }}</code>
-            </div>
-          </div>
-          <div class="col">
-            <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="comentariosDisponibles" class="comentarios"
-            (cdkDropListDropped)="drop($event)">
-            @for (item of comentariosDisponibles; track item) {
-              <div class="comentario-code" [style.color]="colorComentario"  cdkDrag>{{item}}</div>
-            }
-            
-          </div>
-          </div>
-        </div>
-
-        <button class="btn-verificar" (click)="verificarComentario5()" [disabled]="resueltos.comentario5">Verificar</button>
-        <div *ngIf="resueltos.comentario5">
-          <span *ngIf="correctos.comentario5">✅ ¡Bien hecho!</span>
-          <span *ngIf="!correctos.comentario5">❌ La respuesta es incorrecta</span>
+        <h2>📝asigna cada comentario a su línea de código correspondiente📝</h2>
+        <h3>Para ello debes arrastrar los comentarios hacia el lugar correcto a la derecha de cada línea.</h3>
+        
+        <div
+        cdkDropList
+        id="listaComentarios"
+        [cdkDropListData]="comentariosDisponibles"
+        [cdkDropListConnectedTo]="connectedDropListsComentario"
+        class="comentarios"
+        (cdkDropListDropped)="dropComentario($event)"
+      >
+        <div
+          class="comentario-code1"
+          *ngFor="let comentario of comentariosDisponibles"
+          cdkDrag
+          [cdkDragData]="comentario"
+        >
+          {{ comentario }}
         </div>
       </div>
+
+        <div class="comentarios-matching">
+          <div *ngFor="let linea of codigoConHuecos; let i = index" class="linea-codigo">
+            <code>{{ linea.codigo }}</code>
       
-         
+            <!-- Zona de hueco para soltar comentario -->
+            <div
+              cdkDropList
+              [id]="'huecoComentario' + i"
+              [cdkDropListData]="huecos[i]"
+              [cdkDropListConnectedTo]="connectedDropListsComentario"
+              class="hueco-comentario"
+              (cdkDropListDropped)="dropComentario($event, i)"
+            >
+              <div
+                class="comentario-code1"
+                *ngIf="huecos[i].length > 0"
+                cdkDrag
+                [cdkDragData]="huecos[i][0]"
+              >
+                {{ huecos[i][0] }}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Botón de verificación -->
+        <button class="btn-verificar" (click)="verificarComentario5()" [disabled]="resueltos.comentario5">Verificar</button>
+        <div *ngIf="resueltos.comentario5">
+          <span *ngIf="correctos.comentario5">✅</span>
+          <span *ngIf="!correctos.comentario5">❌</span>
+        </div>
+      </div>
     
     <!-- Botón final -->
     <button class="btn-finish" (click)="finishLevel()" [disabled]="!puedeFinalizar">Terminar Nivel</button>
