@@ -109,7 +109,7 @@ export class Nivel10Component implements OnInit {
   }
 
   verificarPrueba1(): void {
-    const opciones = ['printf("Hola");', 'printf(Hola);'];
+    const opciones = ['cout<<"hola";', 'cout<<"hola"<<endl;'];
   
     const entrada = this.comentario1.toLowerCase().replace(/\s/g, '');
   
@@ -179,7 +179,8 @@ export class Nivel10Component implements OnInit {
         codigo_aula: this.codigo_aula,
         nivel: this.num_nivel,
         puntos_obtenidos: this.puntos_obtenidos,
-        puntos_minimos: this.puntos_minimos
+        puntos_minimos: this.puntos_minimos,
+        puntos_maximos: this.puntos_maximos
       })
       .subscribe({
         next: () => {

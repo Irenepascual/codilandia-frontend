@@ -97,7 +97,6 @@ export class ProfesorComponent implements OnInit{
         next: (res) => {
           requestsCompleted++;
           if (requestsCompleted === totalLevels) {
-            alert('Todos los niveles añadidos con éxito.');
             this.isLoading = false;
             this.closeCreateRoomModal();
             window.location.reload();
@@ -118,7 +117,6 @@ export class ProfesorComponent implements OnInit{
       nombre_adulto: this.nombre_usuario,
     }).subscribe({
       next: (res) => {
-        alert('Aula virtual creada con éxito.');
         this.isLoading = false;
         this.closeCreateRoomModal();
         window.location.reload();

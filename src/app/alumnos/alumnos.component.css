@@ -18,9 +18,6 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.volver:hover {
-    color: #1648aa;
-}
 
 .titulo {
     font-size: 2em;

@@ -1,10 +1,10 @@
 <div class="nivel10-container">
     <button class="volver" (click)="router.navigate(['/nivelesNinos'])">◀ VOLVER</button>
 
-    <h1>Bucles for</h1>
+    <h1>🔁NIVEL 10: BUCLES FOR🔁</h1>
 
     <div class="prueba">
-        <h2>🔁 Contamos con for</h2>
+        <h2>📚¿QUÉ ES UN BUCLE FOR?📚</h2>
         <p>
             A veces, queremos repetir algo un número exacto de veces. Para eso usamos <code>for</code>.
         </p>
@@ -14,15 +14,13 @@
             👉 Dar 10 saltos.
         </p>
         <p><strong>Ejemplo Notación:</strong></p>
-        <pre><code>
-for (int i = 0; i < 5; i++) {{ '{' }}
-    salto();
-{{ '}' }}<code style="color: white" >                           </code></code></pre>
-
+        <div class="recuadro-ejemplo">
+            <pre><code>for (int i = 0; i < 5; i++) {{ '{' }}<br/>   salto();<br/>{{ '}' }}<code style="color: white" >                           </code></code></pre>
+        </div>
     </div>
 
     <div class="prueba">
-        <h3>📖 ¿Cómo funciona el bucle for?</h3>
+        <h2>📚¿CÓMO FUNCIONA EL BUCLE FOR?📚</h2>
         <p>¡Vamos a entenderlo paso a paso!</p>
         <ul style="list-style: none; padding-left: 0;">
             <li>1️⃣ <strong>Empieza:</strong> Le damos un valor inicial a la variable. <br>
@@ -50,22 +48,25 @@ for (int i = 0; i < 5; i++) {{ '{' }}
     </div>
       
     <div class="prueba">
-        <h2>1. Escribe un bucle que imprima “Hola” 3 veces</h2>
+        <h2>📝escribe un bucle que imprima “Hola” 3 veces📝</h2>
 
         <p><strong>Ejemplo Notación:</strong></p>
-        <pre><code>
-for (int i = 0; i < 2; i++) {{ '{' }}
-    printf("Esto es un ejemplo");
-{{ '}' }}<code style="color: white" >                           </code></code></pre>
-
-        <pre class="esp"><code class="enunciado">for (int i = 0; i < 3; i++) {{ '{' }}</code></pre>
-        <input type="text" [(ngModel)]="comentario1" [disabled]="resueltos.comentario1" />
-        <pre><code class="enunciado">{{ '}' }}</code></pre>
+        <div class="recuadro-ejemplo">
+            <pre><code>for (int i = 0; i < 2; i++) {{ '{' }}<br/>   cout << "Esto es un ejemplo";<br/>{{ '}' }}<code style="color: white" >                           </code></code></pre>
+        </div>
+        <div class="bloque-codigo">
+            <pre class="esp"><code class="enunciado">for (int i = 0; i < 3; i++) {{ '{' }}</code></pre>
+            <pre><code class="enunciado"><input type="text" style="background: white; border: 2px solid #585858; font-family: monospace; margin-left: 3ch; width: 300px; padding: 2px 4px;" [(ngModel)]="comentario1" [disabled]="resueltos.comentario1" /></code></pre>
+            <pre><code class="enunciado">{{ '}' }}</code></pre>
+        </div>
         <button class="btn-verificar" (click)="verificarPrueba1()" [disabled]="resueltos.comentario1">Verificar</button>
         <div *ngIf="resueltos.comentario1">
-            <span *ngIf="correctos.comentario1">✅ ¡Correcto!</span>
-            <span *ngIf="!correctos.comentario1">❌ La respuesta era: <code>printf("Hola");</code></span>
-            <p>Tu respuesta: <code>{{ comentario1 }}</code></p>
+            <span *ngIf="correctos.comentario1">✅</span>
+            <span *ngIf="!correctos.comentario1">❌<br/></span>
+            <p *ngIf="!correctos.comentario1">La respuesta era: <br/></p>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario1"><code>cout << "Hola";</code></p>
+            <p *ngIf="!correctos.comentario1">o</p>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario1"><code>cout << "Hola" << endl;</code></p>
         </div>
         <div *ngIf="correctos.comentario1">
             <div class="ordenador-consola">
@@ -76,52 +77,49 @@ for (int i = 0; i < 2; i++) {{ '{' }}
     </div>
 
     <div class="prueba">
-        <h3>⚠️ ¡Cuidado con los límites!</h3>
+        <h2>⚠️¡CUIDADO CON LOS LÍMITES!⚠️</h2>
         <p>
             Si no configuras bien las condiciones del <code>for</code>, puedes hacer que no se ejecute nunca o que se ejecute demasiadas veces.
         </p>
-        <pre><code>
-for (int i = 10; i < 5; i++) {{ '{' }}
-    ejemplo();
-    {{ '}' }}<code style="color: white" >                              </code></code></pre>
+        <div class="recuadro-ejemplo">
+            <pre><code>for (int i = 10; i < 5; i++) {{ '{' }}<br/>   ejemplo();<br/>{{ '}' }}<code style="color: white" >                              </code></code></pre>
+        </div>
         <p>Este bucle no se ejecuta porque <code>i = 10</code> ya no cumple <code>i < 5</code>.</p>
-        <pre><code>
-for (int i = 0; i < 1000; i++) {{ '{' }}
-    ejemplo();
-    {{ '}' }}<code style="color: white" >                              </code></code></pre>     
-    <p>¡Este bucle se ejecutará hasta <strong>1000 veces</strong>! Son muchas iteraciones pero si la máquina lo puede soportar estamos seguro de que acabará.</p>
+        <div class="recuadro-ejemplo">
+            <pre><code>for (int i = 0; i < 1000; i++) {{ '{' }}<br/>   ejemplo();<br/>{{ '}' }}<code style="color: white" >                              </code></code></pre>     
+        </div>
+        <p>¡Este bucle se ejecutará hasta <strong>1000 veces</strong>! Son muchas iteraciones pero si la máquina lo puede soportar estamos seguro de que acabará.</p>
     </div>
 
 
 
     <div class="prueba">
-        <h2>2. Escribe un bucle que vaya sumando de uno en uno en cada iteración</h2>
+        <h2>📝escribe un bucle que vaya sumando de uno en uno en cada iteración📝</h2>
         <p><strong>Ejemplo Notación:</strong></p>
-        <pre><code>
-int total = 2;
-for (int i = 0; i < 2; i--) {{ '{' }}
-    total = total - 1;
-    printf("Resto 1");
-{{ '}' }}<code style="color: white" >                           </code></code></pre>
-        <pre><code class="enunciado">int suma = 0;</code></pre>
-        <pre><code class="enunciado">for (int i = 1; i <= 5; i++) {{ '{' }}</code></pre>
-        <input type="text" [(ngModel)]="comentario2" [disabled]="resueltos.comentario2" />
-        <pre><code class="enunciado">printf("Sumo 1 a la variable suma");</code> </pre>
-        <pre><code class="enunciado">{{ '}' }}</code></pre>
+        <div class="recuadro-ejemplo">
+            <pre><code>int total = 2;<br/>for (int i = 0; i < 2; i--) {{ '{' }}<br/>   total = total - 1;<br/>   cout << "Resto 1";<br/>{{ '}' }}<code style="color: white" >                           </code></code></pre>
+        </div>
+        <div class="bloque-codigo">
+            <pre><code class="enunciado">int suma = 0;</code></pre>
+            <pre><code class="enunciado">for (int i = 1; i <= 5; i++) {{ '{' }}</code></pre>
+            <pre><code class="enunciado"><input type="text" style="background: white; border: 2px solid #585858; font-family: monospace; margin-left: 3ch; width: 350px; padding: 2px 4px;" [(ngModel)]="comentario2" [disabled]="resueltos.comentario2" /></code></pre>
+            <pre><code class="enunciado">   cout << "Sumo 1 a la variable suma";</code> </pre>
+            <pre><code class="enunciado">{{ '}' }}</code></pre>
+        </div>
         <pre><code class="enunciado"> <strong>¿Cuál será el valor final de la variable suma?</strong> </code> </pre>
         <input type="number" [(ngModel)]="numeroPasteles" [disabled]="resueltos.comentario3" min="1" max="10" /><code class="enunciado"></code><pre></pre>
         <button class="btn-verificar" (click)="verificarPrueba2()" [disabled]="resueltos.comentario3">Verificar</button>
         <div *ngIf="resueltos.comentario3 && resueltos.comentario2">
-            <span *ngIf="correctos.comentario2 && correctos.comentario3">✅ ¡Correcto!</span>
-            <span *ngIf="!correctos.comentario2">❌ La respuesta era: <code>suma = suma + 1;</code></span>
-            <span *ngIf="!correctos.comentario3">❌ La respuesta era: <code>5</code></span>
-            <p>Tu respuesta: <code>{{ comentario2 }}</code> y</p>
-            <p><code>{{ numeroPasteles }}</code></p>
+            <span *ngIf="correctos.comentario2 && correctos.comentario3">✅</span>
+            <span *ngIf="!correctos.comentario2">❌<br/></span>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario2">La primera respuesta era: <code>suma = suma + 1;</code></p>
+            <span *ngIf="!correctos.comentario3"><br/>❌<br/></span>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario3">La segunda respuesta era: <code>5</code></p>
         </div>
     </div>
 
     <div class="prueba">
-        <h2>3. Quiz final: ¿Qué has aprendido sobre los bucles for?</h2>
+        <h2>📝¿qué has aprendido sobre los bucles for?📝</h2>
         <p>¿Qué significa la parte <code>i++</code> en un bucle for?</p>
         <div *ngIf="!resueltos.comentario5" class="lista-opciones">
             <label *ngFor="let opcion of opciones2" class="opcion">
@@ -131,17 +129,15 @@ for (int i = 0; i < 2; i--) {{ '{' }}
             <button class="btn-verificar" (click)="verificarPrueba4()">Verificar</button>
         </div>
         <div *ngIf="resueltos.comentario5">
-            <span *ngIf="correctos.comentario5">✅ ¡Bien hecho!</span>
-            <span *ngIf="!correctos.comentario5">❌ La respuesta era: Incrementa el valor de i en 1</span>
-            <p>Tu respuesta: <strong>{{ comentario5 }}</strong></p>
+            <span *ngIf="correctos.comentario5">✅</span>
+            <span *ngIf="!correctos.comentario5">❌<br/></span>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario5">La respuesta era: <strong>Incrementa el valor de i en 1</strong></p>
         </div>
 
         <br /><hr><br />
-
-        <pre><code>
-for (int i = 0; i < 4; i++) {{ '{' }}
-    saludo();
-{{ '}' }}<code style="color: white" >                           </code></code></pre>
+        <div class="recuadro-ejemplo">
+            <pre><code>for (int i = 0; i < 4; i++) {{ '{' }}<br/>   saludo();<br/>{{ '}' }}<code style="color: white" >                           </code></code></pre>
+        </div>
         <p>¿Cuántas veces se ejecuta <code>saludo()</code>?</p>
         <div *ngIf="!resueltos.comentario6" class="lista-opciones">
             <label *ngFor="let opcion of opciones3" class="opcion">
@@ -151,17 +147,15 @@ for (int i = 0; i < 4; i++) {{ '{' }}
             <button class="btn-verificar" (click)="verificarPrueba5()">Verificar</button>
         </div>
         <div *ngIf="resueltos.comentario6">
-            <span *ngIf="correctos.comentario6">✅ ¡Bien hecho!</span>
-            <span *ngIf="!correctos.comentario6">❌ La respuesta era: 4</span>
-            <p>Tu respuesta: <strong>{{ comentario6 }}</strong></p>
+            <span *ngIf="correctos.comentario6">✅</span>
+            <span *ngIf="!correctos.comentario6">❌<br/></span>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario6">La respuesta era: <strong>4</strong></p>
         </div>
 
         <br /><hr><br />
-
-        <pre><code>
-    for (int i = 1; i <= 5; i++) {{ '{' }}
-    dibujarEstrella();
-    {{ '}' }}<code style="color: white" >                           </code></code></pre>
+        <div class="recuadro-ejemplo">
+            <pre><code>for (int i = 1; i <= 5; i++) {{ '{' }}<br/>   dibujarEstrella();<br/>{{ '}' }}<code style="color: white" >                           </code></code></pre>
+        </div>
         <p>¿Qué hace este bucle?</p>
         <div *ngIf="!resueltos.comentario7" class="lista-opciones">
             <label *ngFor="let opcion of opciones4" class="opcion">
@@ -171,9 +165,9 @@ for (int i = 0; i < 4; i++) {{ '{' }}
             <button class="btn-verificar" (click)="verificarPrueba6()">Verificar</button>
         </div>
         <div *ngIf="resueltos.comentario7">
-            <span *ngIf="correctos.comentario7">✅ ¡Bien hecho!</span>
-            <span *ngIf="!correctos.comentario7">❌ La respuesta era: Dibuja 5 estrellas</span>
-            <p>Tu respuesta: <strong>{{ comentario7 }}</strong></p>
+            <span *ngIf="correctos.comentario7">✅</span>
+            <span *ngIf="!correctos.comentario7">❌<br/></span>
+            <p class="recuadro-ejemplo" *ngIf="!correctos.comentario7">La respuesta era: <strong>Dibuja 5 estrellas</strong></p>
         </div>
         <div *ngIf="correctos.comentario7" class="nota">
             <img src="5estrellas.png" alt="5 estrellas" class="estrella" />

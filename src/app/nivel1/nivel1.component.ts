@@ -14,8 +14,9 @@ export class Nivel1Component implements OnInit {
   nombre_nino: string = '';
   codigo_aula: string = '';
   num_nivel: number = 1;  
-  puntos_minimos: number = 0;
-  puntos_obtenidos: number = 0; 
+  puntos_minimos: number = 10;
+  puntos_obtenidos: number = 10; 
+  puntos_maximos: number = 10;
   nivel_info: string = 'Nivel 1: Introducción a los Programas';
 
   constructor(
@@ -56,7 +57,8 @@ export class Nivel1Component implements OnInit {
       codigo_aula: this.codigo_aula,
       nivel: this.num_nivel,
       puntos_obtenidos: this.puntos_obtenidos,
-      puntos_minimos: this.puntos_minimos
+      puntos_minimos: this.puntos_minimos,
+      puntos_maximos: this.puntos_maximos
     }).subscribe({
       next: (res) => {
         console.log('Nivel actualizado', res);

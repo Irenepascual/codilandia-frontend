@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
+import { switchMap } from 'rxjs/operators';
 
 export interface Solicitud {
   nombre_nino: string;
@@ -121,20 +122,51 @@ export class SolictudesComponent implements OnInit {
     window.location.reload();
   }
 
-  aceptar(solicitud: any){  
-    this.http.post(`http://localhost:3000/api/aulas/pertenece`,{
-      correo_nino: solicitud.correo_nino,
-      nombre_nino: solicitud.nombre_nino,
-      codigo_aula: this.codigoAula,
-      nivel_actual: 1 
-    }).subscribe({
-      next: (res: any) => {
-        console.log('Niño añadido a pertenece:', res);
-        this.cancelar(solicitud); 
-      },
-      error: (err) => {
-        console.error('Error al aceptar la solicitud:', err);
-      }
-    });
-  }
+  aceptar(solicitud: any) {
+    console.log('▶ aceptar()', solicitud);
+    this.isLoading = true;
+  
+    // 1) Inserto al niño
+    this.http
+      .post(
+        `http://localhost:3000/api/aulas/pertenece`,
+        {
+          correo_nino: solicitud.correo_nino,
+          nombre_nino: solicitud.nombre_nino,
+          codigo_aula: this.codigoAula,
+          nivel_actual: 1,
+        }
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('✔ POST pertenece:', res);
+  
+          // 2) Cuando termine, borro la solicitud
+          this.http
+            .delete(
+              `http://localhost:3000/api/aulas/aula/${this.codigoAula}/solicitudes/${solicitud.correo_nino}/${solicitud.nombre_nino}`
+            )
+            .subscribe({
+              next: (delRes) => {
+                console.log('✔ DELETE solicitud:', delRes);
+  
+                // 3) Quito de la lista local
+                this.solicitudes = this.solicitudes.filter(s =>
+                  !(s.correo_nino === solicitud.correo_nino &&
+                    s.nombre_nino === solicitud.nombre_nino)
+                );
+                this.isLoading = false;
+              },
+              error: (errDel) => {
+                console.error('✖ Error DELETE:', errDel);
+                this.isLoading = false;
+              },
+            });
+        },
+        error: (errPost) => {
+          console.error('✖ Error POST:', errPost);
+          this.isLoading = false;
+        },
+      });
+  }  
 }

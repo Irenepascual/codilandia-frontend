@@ -80,7 +80,7 @@ export class Nivel7Component implements OnInit {
     { codigo: 'int x = 5;' },
     { codigo: 'int y = 10;' },
     { codigo: 'int suma = x + y;' },
-    { codigo: 'printf("Resultado: %d", suma);' },
+    { codigo: 'cout << "Resultado: " + suma);' },
     { codigo: 'return 0;' }
   ];
   
@@ -105,6 +105,8 @@ export class Nivel7Component implements OnInit {
 
   resultados: boolean[] = [];
 
+  connectedDropListsComentario: string[] = [];
+
   constructor(
     public router: Router,
     private http: HttpClient
@@ -117,6 +119,7 @@ export class Nivel7Component implements OnInit {
       this.correo_nino = user?.correo_usuario;
       this.nombre_nino = user?.nombre_usuario;
       this.codigo_aula = user?.codigo_aula;
+      this.connectedDropListsComentario = ['listaComentarios', ...this.codigoConHuecos.map((_, i) => 'huecoComentario' + i)];
     } else {
       this.router.navigate(['/login']);
     }
@@ -173,12 +176,17 @@ export class Nivel7Component implements OnInit {
 
   
   verificarComentario5() {
-    const correcto = this.comentariosDisponibles.every((comentario, index) => comentario === this.ordenCorrecto[index]);
     this.resueltos.comentario5 = true;
-    if (correcto){
+  
+    const correcto = this.huecos.every((hueco, i) => 
+      hueco.length > 0 && hueco[0] === this.ordenCorrecto[i]
+    );
+  
+    if (correcto) {
       this.puntos_obtenidos++;
-      this.correctos.comentario5 = true
-    } 
+      this.correctos.comentario5 = true;
+    }
+  
     this.puedeFinalizar++;
   }
   
@@ -199,6 +207,29 @@ export class Nivel7Component implements OnInit {
       );
     }
   }
+
+  dropComentario(event: CdkDragDrop<string[]>, index?: number): void {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      // Si estamos soltando en uno de los huecos (index está definido)
+      if (typeof index === 'number') {
+        // Limpiamos el hueco si ya tenía algo
+        if (this.huecos[index].length > 0) {
+          const comentarioPrevio = this.huecos[index].pop();
+          this.comentariosDisponibles.push(comentarioPrevio!);
+        }
+      }
+  
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+  }
+  
  
   finishLevel(): void {
     if (this.puedeFinalizar < this.puntos_maximos) {
@@ -213,7 +244,8 @@ export class Nivel7Component implements OnInit {
         codigo_aula: this.codigo_aula,
         nivel: this.num_nivel,
         puntos_obtenidos: this.puntos_obtenidos,
-        puntos_minimos: this.puntos_minimos
+        puntos_minimos: this.puntos_minimos,
+        puntos_maximos: this.puntos_maximos
       })
       .subscribe({
         next: () => {

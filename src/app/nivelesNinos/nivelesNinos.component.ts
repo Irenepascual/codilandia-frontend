@@ -14,6 +14,23 @@ export class NivelesNinosComponent implements OnInit {
   nombre: string = '';
   nivel_actual: number = 1;
   isLoading: boolean = false;
+  nombreAula: string = '';
+  notaMedia: number | null = null;
+  notasPorNivel: { numero_nivel: number, nota: number }[] = [];
+
+  titulos = [
+    'INTRODUCCIÓN',
+    'VARIABLES Y TIPOS DE DATOS',
+    'IMPRESIÓN POR PANTALLA',
+    'OPERACIONES ARITMÉTICAS',
+    'COMPARACIONES Y OPERADORES',
+    'OPERACIONES CON STRINGS',
+    'COMENTARIOS',
+    'IF, ELSE, ELSE IF',
+    'BUCLE WHILE',
+    'BUCLE FOR',
+    'FUNCIONES'
+  ];
 
   constructor(private route: ActivatedRoute, public router: Router) {}
 
@@ -41,9 +58,24 @@ export class NivelesNinosComponent implements OnInit {
       console.log('Código aula:', this.codigo_aula);
       console.log('Correo:', this.correo);
       console.log('Nombre:', this.nombre);
+
+      this.getNombreAula();
+      this.fetchNotasYMedia();
+
     } else {
       this.router.navigate(['/login']);
     }
+  }
+
+  getNombreAula():void{
+    this.isLoading = true;
+    fetch(`http://localhost:3000/api/aulas/aula/nombre/${this.codigo_aula}`)
+      .then(r => r.json())
+      .then(json => this.nombreAula = json.nombre_aula)
+      .catch(() => this.nombreAula = '')
+      .finally(() => {
+        this.isLoading = false;
+      });
   }
 
 
@@ -67,6 +99,27 @@ export class NivelesNinosComponent implements OnInit {
         this.isLoading = false;
       });
   }
+
+  fetchNotasYMedia() {
+    const base = `http://localhost:3000/api/aulas/alumnos/nota-media/${this.codigo_aula}/`
+               + `${encodeURIComponent(this.correo)}/`
+               + `${encodeURIComponent(this.nombre)}`;
+    // Nota media
+    fetch(base)
+      .then(r => r.json())
+      .then(json => this.notaMedia = json.nota_media)
+      .catch(() => this.notaMedia = null);
+
+    // Listado de notas por nivel
+    const urlNotas = `http://localhost:3000/api/aulas/alumnos/notas/${this.codigo_aula}/`
+                   + `${encodeURIComponent(this.correo)}/`
+                   + `${encodeURIComponent(this.nombre)}`;
+    fetch(urlNotas)
+      .then(r => r.json())
+      .then(rows => this.notasPorNivel = rows)
+      .catch(() => this.notasPorNivel = []);
+  }
+
 
   navigateToNivel(nivel: number): void {
     const token = localStorage.getItem('auth_token');
