@@ -17,8 +17,8 @@ export class Nivel5Component implements OnInit {
   codigo_aula = '';
   num_nivel = 5;
   puntos_obtenidos = 0;
-  puntos_minimos = 5;
-  puntos_maximos = 7;
+  puntos_minimos = 7;
+  puntos_maximos = 10;
   puedeFinalizar = 0;
 
   correctos: any = {
@@ -108,7 +108,8 @@ export class Nivel5Component implements OnInit {
         codigo_aula: this.codigo_aula,
         nivel: this.num_nivel,
         puntos_obtenidos: this.puntos_obtenidos,
-        puntos_minimos: this.puntos_minimos
+        puntos_minimos: this.puntos_minimos,
+        puntos_maximos: this.puntos_maximos
       })
       .subscribe(() => {
         const token = localStorage.getItem('auth_token');

@@ -18,10 +18,6 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.volver:hover {
-    color: #1648aa;
-}
-
 .titulo {
     font-size: 2em;
     font-weight: bold;
@@ -162,18 +158,22 @@ body {
 }
 
 .popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: center;   /* ahora el título queda centrado */
+  align-items: center;
+  position: relative;        /* para poder posicionar el cierre */
 }
 
 .close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
 }
+
 
 .notas-table {
     width: 100%;
@@ -241,3 +241,21 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+.grafico-fixed-size {
+  width: 100%;
+  max-width: 700px;  /* o el ancho fijo que prefieras */
+  height: 300px;     /* altura fija */
+  margin: 0 auto;
+}
+.grafico-fixed-size canvas {
+  display: block;    /* quita márgenes internos del canvas */
+}
+
+.titulillo {
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(26, 34, 94);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}

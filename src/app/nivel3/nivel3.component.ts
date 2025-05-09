@@ -17,8 +17,8 @@ export class Nivel3Component implements OnInit {
   codigo_aula: string = '';
   num_nivel: number = 3;
   puntos_obtenidos: number = 0;
-  puntos_minimos: number = 4;
-  puntos_maximos: number = 6;
+  puntos_minimos: number = 5;
+  puntos_maximos: number = 7;
   puedeFinalizar = 0;
 
   // Inputs
@@ -149,7 +149,8 @@ export class Nivel3Component implements OnInit {
         codigo_aula: this.codigo_aula,
         nivel: this.num_nivel,
         puntos_obtenidos: this.puntos_obtenidos,
-        puntos_minimos: this.puntos_minimos
+        puntos_minimos: this.puntos_minimos,
+        puntos_maximos: this.puntos_maximos
       })
       .subscribe({
         next: () => {

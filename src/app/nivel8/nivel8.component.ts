@@ -206,7 +206,8 @@ export class Nivel8Component implements OnInit {
         codigo_aula: this.codigo_aula,
         nivel: this.num_nivel,
         puntos_obtenidos: this.puntos_obtenidos,
-        puntos_minimos: this.puntos_minimos
+        puntos_minimos: this.puntos_minimos,
+        puntos_maximos: this.puntos_maximos
       })
       .subscribe({
         next: () => {

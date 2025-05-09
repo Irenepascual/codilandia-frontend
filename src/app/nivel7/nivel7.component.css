@@ -1,64 +1,197 @@
 .nivel7-container {
-    background-color: #b3d9ff;
-    height: auto;
-    padding: 40px;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 3rem;
-    color: #2f4f4f;
-    margin-bottom: 30px;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    color: #2f4f4f;
-    margin-bottom: 10px;
-  }
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fffbea;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  h3 {
-    font-size: 1em;
-    font-weight: normal;
-    margin-bottom: 40px;
-    margin-top: 30px;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 3em;
+}
+
+h2 {
+  color: #6b4f18;
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: normal;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+.prueba {
+  background: #fff6dc;
+  border: 1px solid #e0cf9f;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.volver {
+  display: block;
+  border: none;
+  padding: 10px 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-color: transparent;
+  color: #000000;
+  font-weight: 600;
+  font-size: 1em;
+  text-align: left !important;
+}
+
+.btn-finish {
+  padding: 15px 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 40px;
+}
+
+.btn-finish:hover {
+  background-color: #45a049;
+}
+
+.btn-verificar {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-verificar:hover {
+  background-color: #0b7dda;
+}
+
+
+.recuadro-ejemplo {
+  border: 3px solid #ff8c00; 
+  background-color: #fff3e6; 
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  display: inline-flex; 
+  align-items: center;
+  gap: 8px;
+  margin: 15px auto;
+  text-align: left;
+  box-shadow: 2px 2px 5px rgba(255, 140, 0, 0.1);
+}
+
+.recuadro-ejemplo .icono {
+  font-size: 1.4rem;
+}
+
+.recuadro-ejemplo code {
+  font-family: Consolas, 'Courier New', monospace;
+  color: #c14400;
+  font-weight: 600;
+}
+
+.bloque-codigo {
+  display: inline-block;
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
   
-  .volver {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: none;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-    font-weight: 600;
-  }
+.bloque-codigo p {
+  margin: 0;
+  white-space: nowrap;
+}
   
-  .prueba {
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    width: 90%;
-    max-width: 700px;
-  }
+.texto-comparacion {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
   
-  input[type="text"] {
-    padding: 10px;
-    font-size: 1rem;
-    margin: 10px 0;
-    width: 90%;
-    max-width: 350px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
+.texto-comparacion code {
+  background-color: #fff3e6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #c14400;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.lista-operadores {
+  margin-top: 15px;
+  background-color: #fff9e6;
+  border: 2px dashed #e0cf9f;
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  text-align: left;
+  font-size: 1.5rem;
+}
   
+.lista-operadores ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+  
+.lista-operadores li {
+  margin-bottom: 6px;
+}
+  
+.lista-operadores code {
+  background-color: #fce4ba;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #b35e00;
+}
+
+/*-------------------------------------*/
+
+    
   .nota {
     position: relative;
     display: flex;
@@ -156,40 +289,57 @@
     flex: 1;
     max-width: 50%;
   }
-  
-  .btn-verificar {
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
-    margin: 10px 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
 
-  .btn-verificar:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
-  }
+  .linea-codigo {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
 
-  .btn-verificar:hover {
-    background-color: #0b7dda;
-  }
-  
-  .btn-finish {
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 40px;
-  }
-  
-  .btn-finish:hover {
-    background-color: #45a049;
-  }
+.linea-codigo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding-right: 10px;
+}
+
+.linea-codigo code {
+  width: 60%;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+}
+
+.hueco-comentario {
+  width: 35%;
+  min-height: 40px;
+  background-color: #f0f8ff;
+  border: 2px dashed #aaa;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.hueco-comentario.cdk-drop-list-dragging {
+  background-color: #e0ebff;
+}
+
+.comentario-code1 {
+  background-color: #dbeaff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  margin: 5px 0;
+  cursor: move;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}

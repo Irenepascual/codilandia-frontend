@@ -46,6 +46,8 @@ export class EstadisticasComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
+    animation: false,
     plugins: {
       legend: {
         display: false,
@@ -73,12 +75,12 @@ export class EstadisticasComponent implements OnInit {
     }
   };
   
-  public barChartLabels: string[] = Array.from({ length: 12 }, (_, i) => `Nivel ${i + 1}`);
+  public barChartLabels: string[] = Array.from({ length: 11 }, (_, i) => `Nivel ${i + 1}`);
   public barChartData: ChartData<'bar'> = {
-    labels: Array.from({ length: 12 }, (_, i) => `Nivel ${i + 1}`),
+    labels: Array.from({ length: 11 }, (_, i) => `Nivel ${i + 1}`),
     datasets: [
       {
-        data: Array(12).fill(0),
+        data: Array(11).fill(0),
         label: 'Número de alumnos',
         backgroundColor: '#42A5F5'
       }
@@ -87,7 +89,7 @@ export class EstadisticasComponent implements OnInit {
 
   
 
-    ngOnInit() {
+  ngOnInit() {
       this.isLoading = true;
       this.codigoAula = this.route.snapshot.paramMap.get('codigo'); 
       
@@ -115,9 +117,9 @@ export class EstadisticasComponent implements OnInit {
         });
       }
       this.getUserData();
-    }
+  }
   
-    getUserData() {
+  getUserData() {
       const token = localStorage.getItem('auth_token');
       if (token) {
         const user = this.decodeToken(token);
@@ -127,9 +129,9 @@ export class EstadisticasComponent implements OnInit {
         this.router.navigate(['/login']); 
         this.isLoading = false;
       }
-    }
+  }
 
-    nivelMedio() {
+  nivelMedio() {
       if (this.alumnos.length === 0) {
         this.nivel_medio = null;
         return;
@@ -155,33 +157,56 @@ export class EstadisticasComponent implements OnInit {
           }
         ]
       };
-    }
-    
+  }  
   
-    decodeToken(token: string) {
+  decodeToken(token: string) {
       const payload = token.split('.')[1];  
       const decoded = atob(payload);  
       return JSON.parse(decoded); 
-    }
+  }
   
-    volver() {
+  volver() {
       this.location.back();
-    }
+  }
 
-    openAlumnoPopup(alumno: any) {
-      this.selectedAlumno = {...alumno}; 
-      this.showPopup = true;
-      this.getNotas(alumno); 
-    }
-
-    closePopup() {
+  closePopup() {
       this.showPopup = false;
       this.selectedAlumno = null;
-    }
+  }
 
+  openAlumnoPopup(alumno: any) {
+    this.selectedAlumno = { ...alumno, notas: [], nota_media: null };
+    this.showPopup = true;
+    this.getNotas(alumno);
+    this.getNotaMedia(alumno);
+  }
+  
+  getNotaMedia(alumno: any) {
+    this.isLoading = true;
+    const url = `http://localhost:3000/api/aulas/alumnos/nota-media/`
+              + `${this.codigoAula}/`
+              + `${encodeURIComponent(alumno.correo_nino)}/`
+              + `${encodeURIComponent(alumno.nombre_nino)}`;
+
+    this.http.get<{ nota_media: number }>(url)
+      .subscribe({
+        next: response => {
+          // response.nota_media ya está tipado, no hay any
+          this.selectedAlumno.nota_media = response.nota_media;
+          this.isLoading = false;
+        },
+        error: err => {
+          console.error('Error al cargar nota media:', err);
+          this.selectedAlumno.nota_media = null;
+          this.isLoading = false;
+        }
+      });
+  }
+
+  
   getNotas(alumno: any) {
     this.isLoading = true;
-    this.http.get<any[]>(`http://localhost:3000/api/aulas/alumnos/notas/${this.codigoAula}/${alumno.correo_nino}`).subscribe({
+    this.http.get<any[]>(`http://localhost:3000/api/aulas/alumnos/notas/${this.codigoAula}/${alumno.correo_nino}/${alumno.nombre_nino}`).subscribe({
       next: (res) => {
         this.selectedAlumno.notas = res; 
         this.selectedAlumno.notasMap = {};
