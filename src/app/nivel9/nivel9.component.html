@@ -125,7 +125,7 @@
         <p>¿Qué pasa si la condición del bucle while nunca se vuelve falsa?</p>
       
         <div *ngIf="!resueltos.comentario5" class="lista-opciones">
-          <label *ngFor="let opcion of opciones2">
+          <label *ngFor="let opcion of opciones2" class="opcion" >
             <input type="radio"  name="comentario2" [value]="opcion" [(ngModel)]="comentario5" />
             {{ opcion }}
           </label>
@@ -145,7 +145,7 @@
         </div>
         <p>¿Cuántas veces se ejecuta el bucle?</p>
         <div *ngIf="!resueltos.comentario6" class="lista-opciones">
-          <label *ngFor="let opcion of opciones3" >
+          <label *ngFor="let opcion of opciones3" class="opcion">
             <input type="radio" name="comentario3" [value]="opcion" [(ngModel)]="comentario6" />
             {{ opcion }}
           </label>
@@ -162,7 +162,7 @@
 
         <p>¿Cuál de estas frases es como un bucle en la vida real?</p>
         <div *ngIf="!resueltos.comentario7" class="lista-opciones">
-          <label *ngFor="let opcion of opciones4"  >
+          <label *ngFor="let opcion of opciones4"  class="opcion">
             <input type="radio" name="comentario7" [value]="opcion" [(ngModel)]="comentario7" />
             {{ opcion }}
           </label>
