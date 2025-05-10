@@ -23,4 +23,8 @@ export class AuthService {
   isAuthenticated(): boolean {
     return this.getToken() !== null;
   }
+
+  getUserTipo(): string | null {
+    return localStorage.getItem('user_tipo');
+  }
 }

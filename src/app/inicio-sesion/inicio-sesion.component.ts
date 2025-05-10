@@ -39,7 +39,7 @@ export class InicioSesionComponent {
     }).subscribe({
       next: (res) => {
         localStorage.setItem('auth_token', res.token);
-        
+        localStorage.setItem('user_tipo', res.tipo);
         // Redirigir según el tipo de usuario
         if (res.tipo === 'nino') {
           this.isLoading = false;
